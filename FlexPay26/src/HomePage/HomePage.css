@@ -7,7 +7,7 @@
 
   background-image:
     linear-gradient(rgba(30, 15, 0, 0.65), rgba(30, 15, 0, 0.65)),
-    url("../../public/futuristic-cyborg-soldier-red-neon-lights_1150025-36251.jpg");
+    url("../../public/halo_iamge.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -45,7 +45,7 @@
   padding: 15px;
   padding-left: 40px;
   padding-right: 40px;
-  border-radius: 7px;
+  border-radius: 10px;
   font-size: clamp(10px, 2vw, 15px);
 }
 .main-body-homepage-button-buy-diamonds{
@@ -57,6 +57,7 @@
 .main-body-homepage-button-view-packages{
   color: white;
   background-color: transparent;
+  border: solid white 2px;
 }
 @media only screen and (max-width: 992px) {
   .main-body-homepage {
