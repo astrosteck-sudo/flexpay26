@@ -1,0 +1,69 @@
+.main-body-homepage {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  padding-top: 200px;
+
+  background-image:
+    linear-gradient(rgba(30, 15, 0, 0.65), rgba(30, 15, 0, 0.65)),
+    url("../../public/futuristic-cyborg-soldier-red-neon-lights_1150025-36251.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 90vh;
+}
+
+.main-body-homepage-top-up-text {
+  font-weight: bolder;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: white;
+  text-align: center;
+  font-family: Sora;
+}
+
+.diamonds-instantely-span {
+  color: rgb(242, 92, 5);
+  font-weight: bold;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.4));
+  color: rgb(255 107 0 / var(--tw-text-opacity, 1));
+}
+.main-body-homepage-description-text {
+  --tw-text-opacity: 1;
+  width: 50%;
+  color: rgb(226 191 176 / var(--tw-text-opacity, 1));
+  text-align: center;
+  font-size: clamp(15px, 2vw, 20px);
+  margin: 30px;
+}
+.main-body-homepage-buttons{
+  display: flex;
+  gap: 30px;
+}
+.main-body-homepage-buttons button{
+  padding: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 7px;
+  font-size: clamp(10px, 2vw, 15px);
+}
+.main-body-homepage-button-buy-diamonds{
+  background-color: rgb(255, 102, 0);
+  color: black;
+  border: none;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.4));
+}
+.main-body-homepage-button-view-packages{
+  color: white;
+  background-color: transparent;
+}
+@media only screen and (max-width: 992px) {
+  .main-body-homepage {
+    padding-top: 150px;
+  }
+  .main-body-homepage-description-text{
+    width: 100vw;
+  }
+}
+/* linear-gradient(to bottom, #201203, #593004) */

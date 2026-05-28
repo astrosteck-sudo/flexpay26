@@ -45,7 +45,9 @@ export function PageHeader() {
         />
       </div>
 
-      <div className={`mobile-pageheader-links ${isMobileNavOpen? 'open' :'close'}`}>
+      <div
+        className={`mobile-pageheader-links ${isMobileNavOpen ? "open" : "close"}`}
+      >
         <NavLink className="page-header-link home-link" to="/">
           Home
         </NavLink>
