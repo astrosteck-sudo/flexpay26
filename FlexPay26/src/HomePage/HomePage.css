@@ -11,8 +11,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  height: 90vh;
+  /* background-attachment: fixed; */
+  height: 100vh;
 }
 
 .main-body-homepage-top-up-text {
@@ -20,15 +20,24 @@
   font-size: clamp(2rem, 5vw, 3rem);
   color: white;
   text-align: center;
-  font-family: Sora;
+  font-family: Sora Bold;
 }
 
 .diamonds-instantely-span {
-  color: rgb(242, 92, 5);
   font-weight: bold;
-  filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.4));
+  /* filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.4)); */
   color: rgb(255 107 0 / var(--tw-text-opacity, 1));
+  text-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
+
+  /* Add these two lines to activate the z-index stacking */
+  /* display: inline-block;  */
+  /* position: relative; */
+  /* z-index: -1;  */
+
+
+  
 }
+
 .main-body-homepage-description-text {
   --tw-text-opacity: 1;
   width: 50%;
@@ -37,34 +46,266 @@
   font-size: clamp(15px, 2vw, 20px);
   margin: 30px;
 }
-.main-body-homepage-buttons{
+.main-body-homepage-buttons {
   display: flex;
   gap: 30px;
 }
-.main-body-homepage-buttons button{
+.main-body-homepage-buttons button {
   padding: 15px;
   padding-left: 40px;
   padding-right: 40px;
   border-radius: 10px;
   font-size: clamp(10px, 2vw, 15px);
 }
-.main-body-homepage-button-buy-diamonds{
+.main-body-homepage-button-buy-diamonds {
   background-color: rgb(255, 102, 0);
   color: black;
   border: none;
-  filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.4));
+  /* filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.4)); */
+  box-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
 }
-.main-body-homepage-button-view-packages{
+.main-body-homepage-button-view-packages {
   color: white;
   background-color: transparent;
   border: solid white 2px;
+}
+
+.game-profile-icon {
+  display: inline-flex;
+  align-items: "center";
+  justify-content: "center";
+  width: 56;
+  height: 56;
+  border-radius: 14;
+  background: #1a1a1a;
+  border: 1px solid rgba(210, 105, 30, 0.35);
+  box-shadow: 0 0 0 1px rgba(210, 105, 30, 0.1);
+}
+
+.game-profile-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: #1a1a1a;
+  stroke: #cc5500; /* deep rich orange */
+  stroke-width: 1.5px; /* thickness */
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.main-body-user-orders-container {
+  display: flex;
+  width: 100vw;
+  gap: 20px;
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background: black;
+}
+.player-id-container-and-select-package-container {
+  width: 70%;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.player-id-container {
+}
+.order-summary-container {
+  width: 30%;
+}
+
+.player-id-container,
+.select-package-container,
+.order-summary-container {
+  /* border: solid white .5px; */
+  border-radius: 20px;
+  background-color: rgb(16, 16, 16);
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.game-profile-icon {
+  /* border: solid blue; */
+  padding: 5px;
+  border-radius: 10px;
+}
+.player-input {
+  background-color: black;
+  border: solid rgb(31, 30, 30) 0.1px;
+  padding: 20px;
+  border-radius: 15px;
+  color: white;
+  width: 100%;
+  font-size: clamp(15px, 2vw, 15px);
+  font-family: Sora;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input:focus {
+  outline: none;     /* Removes the default thick blue/black ring */
+  box-shadow: none;  /* Removes the glow effect added by frameworks like Bootstrap */
+  border-color: initial; /* Optional: Stops the default border color from changing */
+}
+
+.game-profile-icon-and-enter-player-id-text,
+.game-profile-icon-and-select-package {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.package-options-diamonds-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  padding-bottom: 0px;
+  height: 100%;
+}
+.package-option-diamonds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-direction: column;
+  padding: 30px;
+  border: #cc5500 solid 1px;
+  border-radius: 15px;
+}
+@media (max-width: 600px) {
+  .package-option-diamonds {
+    flex: 1 1 calc(50% - 0.5rem);
+    max-width: calc(50% - 0.5rem);
+    min-width: 0;
+
+    border: red solid 1px;
+  }
+}
+.diamonds-image {
+  width: 30px;
+  height: 30px;
+}
+.package-option-diamonds-title {
+  font-weight: bold;
+  color: white;
+  font-size: clamp(15px, 2vw, 20px);
+}
+.package-option-diamonds-price {
+  color: #ff6600;
+  font-weight: bold;
+}
+
+.order-summary-title {
+  font-weight: bold;
+  color: white;
+  font-size: clamp(18px, 2vw, 20px);
+  padding-bottom: 20px;
+  border-bottom: solid white 1px;
+  font-family: Sora;
+}
+.order-summary-items-and-values {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.order-summary-items-and-values.last {
+  border-bottom: solid white 1px;
+  padding-bottom: 30px;
+}
+.order-summary-item {
+  color: rgb(226 191 176 / var(--tw-text-opacity, 1));
+  font-size: clamp(15px, 2vw, 15px);
+  font-family: Sora;
+}
+.order-summary-value {
+  color: white;
+  font-weight: bold;
+  font-family: Sora;
+}
+.order-summary-items-and-values-total-container {
+  display: flex;
+  justify-content: space-between;
+}
+.order-summary-total-text {
+  color: white;
+  font-weight: bold;
+  font-size: clamp(18px, 2vw, 20px);
+  font-family: Sora;
+}
+.order-summary-value-grand-total {
+  color: #ff6600;
+  font-weight: bold;
+  font-size: clamp(20px, 2vw, 30px);
+  font-family: Sora;
+}
+
+.order-summary-phone-number-container {
+  border: solid white 0.5px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  font-family: Sora Bold;
+}
+
+.order-summary-confirm-button {
+  padding: 15px;
+  border-radius: 10px;
+  font-size: clamp(15px, 2vw, 15px);
+
+  background-color: rgb(255, 102, 0);
+  color: black;
+  border: none;
+  /* filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.4)); */
+  box-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
+  font-family: Sora;
+  font-weight: bolder;
+}
+
+.game-profile-enter-player-id-text, .game-profile-select-package-text{
+  color: white;
+  font-size: clamp(15px, 2vw, 20px);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 @media only screen and (max-width: 992px) {
   .main-body-homepage {
     padding-top: 150px;
   }
-  .main-body-homepage-description-text{
+  .main-body-homepage-description-text {
     width: 100vw;
+  }
+  .main-body-user-orders-container {
+    flex-direction: column;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+  }
+  .player-id-container-and-select-package-container{
+    width: 100%;
+  }
+  .order-summary-container {
+    width: 100%;
+    margin-top: 30px;
   }
 }
 /* linear-gradient(to bottom, #201203, #593004) */

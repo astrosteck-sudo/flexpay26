@@ -4,6 +4,8 @@
   align-items: center;
   gap: 40px;
   color: white;
+  width: 100%;
+  position: fixed;
   background-color: rgb(82, 24, 3);
   background: linear-gradient(to bottom, #000000, #1f1001);
   /* width: 100vw; */
@@ -26,7 +28,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .pageheader-site-name {
-  font-family: Sora;
+  font-family: Sora Bold;
   font-weight: bolder;
   font-size: clamp(30px, 2vw, 60px);
   color: rgb(212, 161, 142);
@@ -47,8 +49,8 @@
 .home-link.active {
   border-bottom: solid rgb(224, 77, 32);
 }
-.pricing-link.active{
-    color: red;
+.pricing-link.active {
+  color: red;
 }
 
 .page-header-hambuger-button {
@@ -62,7 +64,6 @@
     display: none;
   }
 }
-
 
 @media only screen and (max-width: 992px) {
   .page-header-hambuger-button {
@@ -79,6 +80,7 @@
     justify-content: space-between;
     padding-left: 30px;
     padding-right: 30px;
+    position: static;
   }
   .mobile-pageheader-links {
     background: linear-gradient(to bottom, #201203, #593004);
@@ -89,15 +91,14 @@
     gap: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
-     position: fixed;
-     width: 100vw;
+    position: fixed;
+    width: 100vw;
   }
   .mobile-pageheader-links.open {
     animation: slidedown 0.4s ease forwards;
   }
   .mobile-pageheader-links.close {
     animation: slideUp 0.4s ease forwards;
-   
   }
   @keyframes slidedown {
     from {

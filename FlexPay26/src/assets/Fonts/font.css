@@ -1,5 +1,12 @@
 @font-face{
   font-family: "Sora";
+  src: url(fonts/Sora/Sora-VariableFont_wght.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: "Sora Bold";
   src: url(fonts/Sora/static/Sora-ExtraBold.ttf);
   font-weight: normal;
   font-style: normal;
