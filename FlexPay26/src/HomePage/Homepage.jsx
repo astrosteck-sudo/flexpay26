@@ -135,6 +135,65 @@ export function HomePage() {
           </div>
         </div>
       </div>
+
+      <div className="why-choose-flex-pay-container">
+        <h2 className="why-choose-flex-pay-title">WHY CHOOSE FLEX PAY?</h2>
+
+        <div className="why-choose-reasons-container">
+          <div className="why-choose-reason">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12a9 9 0 1 1 18 0" />
+
+                <line x1="12" y1="12" x2="17" y2="7" />
+
+                <circle cx="12" cy="12" r="1" />
+              </svg>
+            </div>
+            <p className="why-choose-reason-title">Fast Delivery</p>
+            <p className="why-choose-reason-description">
+              Your diamonds are sent to your account within 2-5 minutes of
+              payment confirmation. Instant adrenaline.
+            </p>
+          </div>
+
+          <div className="why-choose-reason">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6z" />
+
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+            </div>
+            <p className="why-choose-reason-title">Secure Payments</p>
+            <p className="why-choose-reason-description">
+              Encrypted transactions via Paystack and local gateways. Your
+              financial safety is our top priority.
+            </p>
+          </div>
+
+          <div className="why-choose-reason">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 11a8 8 0 0 1 16 0" />
+
+                <path d="M4 11v3a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2v-3" />
+
+                <path d="M16 11v3a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2v-3" />
+
+                <circle cx="12" cy="11" r="2.5" />
+
+                <path d="M9 17c0-1.5 1.3-2.5 3-2.5s3 1 3 2.5" />
+              </svg>
+            </div>
+            <p className="why-choose-reason-title">24/7 Support</p>
+            <p className="why-choose-reason-description">
+              Our support squad is always online to help you with any issues. We
+              never go AFK on our users.
+            </p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

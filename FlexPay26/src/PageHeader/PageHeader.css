@@ -93,12 +93,16 @@
     padding-bottom: 20px;
     position: fixed;
     width: 100vw;
+    border: solid red;
   }
   .mobile-pageheader-links.open {
     animation: slidedown 0.4s ease forwards;
+    pointer-events: auto; /* allow interaction during animation */
   }
   .mobile-pageheader-links.close {
     animation: slideUp 0.4s ease forwards;
+    pointer-events: none; /* prevent interaction during animation */
+    
   }
   @keyframes slidedown {
     from {
