@@ -127,7 +127,7 @@ export function HomePage() {
             <input
               type="number"
               placeholder="Enter Phone Number"
-              className="player-input"
+              className="player-input user-phone-number-input"
             />
             <button className="order-summary-confirm-button">
               Confirm Order

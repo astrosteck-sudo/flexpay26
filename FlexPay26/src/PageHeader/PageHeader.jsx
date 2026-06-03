@@ -8,11 +8,7 @@ export function PageHeader() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   function handleMobileNavOpen() {
-    if (isMobileNavOpen) {
-      setIsMobileNavOpen(false);
-    } else {
-      setIsMobileNavOpen(true);
-    }
+    setIsMobileNavOpen(!isMobileNavOpen);
   }
   return (
     <>

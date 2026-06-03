@@ -96,8 +96,8 @@
   display: flex;
   width: 100vw;
   gap: 20px;
-  padding-left: 200px;
-  padding-right: 200px;
+  padding-left: 100px;
+  padding-right: 100px;
   padding-top: 120px;
   padding-bottom: 120px;
   background: black;
@@ -107,8 +107,6 @@
   gap: 20px;
   display: flex;
   flex-direction: column;
-}
-.player-id-container {
 }
 .order-summary-container {
   width: 30%;
@@ -166,16 +164,11 @@ input:focus {
 .package-options-diamonds-container {
   display: flex;
   align-items: center;
-  gap: 15px;
   flex-wrap: wrap;
-  gap: 1rem;
   box-sizing: border-box;
-
-  display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  padding: 1rem;
+  /* padding: 1rem; */
   box-sizing: border-box;
   padding-bottom: 0px;
   height: 100%;
@@ -189,14 +182,13 @@ input:focus {
   padding: 30px;
   border: #cc5500 solid 1px;
   border-radius: 15px;
+  width: 23%;
 }
 @media (max-width: 600px) {
   .package-option-diamonds {
     flex: 1 1 calc(50% - 0.5rem);
     max-width: calc(50% - 0.5rem);
     min-width: 0;
-
-    border: red solid 1px;
   }
 }
 .diamonds-image {
@@ -206,7 +198,7 @@ input:focus {
 .package-option-diamonds-title {
   font-weight: bold;
   color: white;
-  font-size: clamp(15px, 2vw, 20px);
+  font-size: 16px;
 }
 .package-option-diamonds-price {
   color: #ff6600;
@@ -216,9 +208,9 @@ input:focus {
 .order-summary-title {
   font-weight: bold;
   color: white;
-  font-size: clamp(18px, 2vw, 20px);
+  font-size: 15px;
   padding-bottom: 20px;
-  border-bottom: solid white 1px;
+  border-bottom: solid rgba(128, 128, 128, 0.322) .3px;
   font-family: Sora;
 }
 .order-summary-items-and-values {
@@ -227,18 +219,19 @@ input:focus {
   gap: 10px;
 }
 .order-summary-items-and-values.last {
-  border-bottom: solid white 1px;
+  border-bottom: solid rgba(128, 128, 128, 0.322) .3px;
   padding-bottom: 30px;
 }
 .order-summary-item {
   color: rgb(226 191 176 / var(--tw-text-opacity, 1));
-  font-size: clamp(15px, 2vw, 15px);
+  font-size: 13px;
   font-family: Sora;
 }
 .order-summary-value {
   color: white;
   font-weight: bold;
   font-family: Sora;
+  font-size: 13px;
 }
 .order-summary-items-and-values-total-container {
   display: flex;
@@ -247,24 +240,27 @@ input:focus {
 .order-summary-total-text {
   color: white;
   font-weight: bold;
-  font-size: clamp(18px, 2vw, 20px);
+  font-size: 16px;
   font-family: Sora;
 }
 .order-summary-value-grand-total {
   color: #ff6600;
   font-weight: bold;
-  font-size: clamp(20px, 2vw, 30px);
+  font-size: 17px;
   font-family: Sora;
 }
 
 .order-summary-phone-number-container {
-  border: solid white 0.5px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
   font-family: Sora Bold;
+  font-size: 14px;
+}
+.player-input.user-phone-number-input{
+  padding: 13px;
 }
 
 .order-summary-confirm-button {
@@ -283,7 +279,7 @@ input:focus {
 
 .game-profile-enter-player-id-text, .game-profile-select-package-text{
   color: white;
-  font-size: clamp(15px, 2vw, 20px);
+  font-size: 14px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 @media only screen and (max-width: 992px) {
