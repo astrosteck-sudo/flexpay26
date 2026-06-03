@@ -194,6 +194,77 @@ export function HomePage() {
           </div>
         </div>
       </div>
+
+      <div className="team-members-container">
+        <h2 className="team-members-title">MEET THE TEAM</h2>
+
+        <div className="team-members-info">
+          <div className="team-member">
+            <img
+              src="./public/team_images/testiminial_1.jpg"
+              alt="Team Member"
+              className="team-member-image"
+            />
+            <div>
+              <p className="team-members-name">Paul Foli</p>
+              <p className="team-member-role">
+                "Bought 1060 diamonds and they arrived before I even closed my
+                browser. Absolute beasts!"
+              </p>
+            </div>
+          </div>
+
+          <div className="team-member">
+            <img
+              src="./public/team_images/testiminial_1.jpg"
+              alt="Team Member"
+              className="team-member-image"
+            />
+            <div>
+              <p className="team-members-name">ALbert Joe</p>
+              <p className="team-member-role">
+                "Bought 1060 diamonds and they arrived before I even closed my
+                browser. Absolute beasts!"
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="contact-us-container">
+          <h2 className="contact-us-title">Need Support?</h2>
+          <div className="contact-us-item">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <polyline points="2,4 12,13 22,4" />
+            </svg>
+            <a
+              href={`mailto:episilionhostels26@gmail.com?subject=${encodeURIComponent("Hostel Inquiry")}&body=${encodeURIComponent("Hello, I would like to inquire about...")}`}
+            >
+              episilionhostels26@gmail.com
+            </a>
+          </div>
+          <div className="contact-us-item">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.413A9.953 9.953 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
+            </svg>
+            <a
+              href="https://wa.me/0535926843"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              0535926843
+            </a>
+          </div>
+
+          <div className="contact-us-item">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02z" />
+            </svg>
+            <a href="tel:0593591255">0593591255</a>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

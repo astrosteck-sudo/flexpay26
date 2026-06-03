@@ -80,7 +80,9 @@
     justify-content: space-between;
     padding-left: 30px;
     padding-right: 30px;
-    position: static;
+    position: sticky;
+
+    
   }
   .mobile-pageheader-links {
     background: linear-gradient(to bottom, #201203, #593004);
@@ -102,7 +104,6 @@
   .mobile-pageheader-links.close {
     animation: slideUp 0.4s ease forwards;
     pointer-events: none; /* prevent interaction during animation */
-    
   }
   @keyframes slidedown {
     from {

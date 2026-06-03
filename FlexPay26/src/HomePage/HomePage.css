@@ -33,9 +33,6 @@
   /* display: inline-block;  */
   /* position: relative; */
   /* z-index: -1;  */
-
-
-  
 }
 
 .main-body-homepage-description-text {
@@ -149,8 +146,8 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 input:focus {
-  outline: none;     /* Removes the default thick blue/black ring */
-  box-shadow: none;  /* Removes the glow effect added by frameworks like Bootstrap */
+  outline: none; /* Removes the default thick blue/black ring */
+  box-shadow: none; /* Removes the glow effect added by frameworks like Bootstrap */
   border-color: initial; /* Optional: Stops the default border color from changing */
 }
 
@@ -210,7 +207,7 @@ input:focus {
   color: white;
   font-size: 15px;
   padding-bottom: 20px;
-  border-bottom: solid rgba(128, 128, 128, 0.322) .3px;
+  border-bottom: solid rgba(128, 128, 128, 0.322) 0.3px;
   font-family: Sora;
 }
 .order-summary-items-and-values {
@@ -219,7 +216,7 @@ input:focus {
   gap: 10px;
 }
 .order-summary-items-and-values.last {
-  border-bottom: solid rgba(128, 128, 128, 0.322) .3px;
+  border-bottom: solid rgba(128, 128, 128, 0.322) 0.3px;
   padding-bottom: 30px;
 }
 .order-summary-item {
@@ -259,7 +256,7 @@ input:focus {
   font-family: Sora Bold;
   font-size: 14px;
 }
-.player-input.user-phone-number-input{
+.player-input.user-phone-number-input {
   padding: 13px;
 }
 
@@ -277,12 +274,12 @@ input:focus {
   font-weight: bolder;
 }
 
-.game-profile-enter-player-id-text, .game-profile-select-package-text{
+.game-profile-enter-player-id-text,
+.game-profile-select-package-text {
   color: white;
   font-size: 14px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 .icon-box {
   display: inline-flex;
@@ -299,7 +296,7 @@ input:focus {
   width: 28px;
   height: 28px;
   fill: none;
-  stroke: #00bcd4;        /* cyan/teal blue */
+  stroke: #00bcd4; /* cyan/teal blue */
   stroke-width: 1.8px;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -311,7 +308,7 @@ input:focus {
   stroke: none;
 }
 
-.why-choose-flex-pay-container{
+.why-choose-flex-pay-container {
   background: linear-gradient(to bottom, #2a1703, #2d1903);
   padding: 20px;
   display: flex;
@@ -319,7 +316,7 @@ input:focus {
   justify-content: center;
   align-items: center;
 }
-.why-choose-flex-pay-title{
+.why-choose-flex-pay-title {
   font-weight: bold;
   color: white;
   font-size: clamp(20px, 2vw, 40px);
@@ -328,12 +325,12 @@ input:focus {
   font-family: Sora Bold;
 }
 
-.why-choose-reasons-container{
+.why-choose-reasons-container {
   width: 90%;
   display: flex;
   gap: 20px;
 }
-.why-choose-reason{
+.why-choose-reason {
   padding: 50px;
   border: solid rgb(255, 102, 0) 1px;
   display: flex;
@@ -342,19 +339,111 @@ input:focus {
   background-color: rgb(16, 16, 16);
   border-radius: 20px;
 }
-.why-choose-reason-title{
+.why-choose-reason-title {
   font-weight: bold;
   color: white;
   font-size: clamp(15px, 2vw, 15px);
-  font-family: Sora ;
+  font-family: Sora;
 }
-.why-choose-reason-description{
+.why-choose-reason-description {
   color: rgb(226 191 176 / var(--tw-text-opacity, 1));
   font-size: clamp(13px, 2vw, 13px);
-  font-family: Sora ;
+  font-family: Sora;
 }
 
+.team-members-container {
+  display: flex;
+  gap: 20px;
+  padding: 50px;
+  background-color: rgb(16, 16, 16);
+  color: white;
+  flex-direction: column;
+}
+.team-members-title {
+  font-weight: bold;
+  color: white;
+  font-size: clamp(20px, 2vw, 40px);
+  font-family: Sora Bold;
+  margin: auto;
+}
+.team-member {
+  padding: 20px;
+  width: 30%;
+  background-color: rgba(59, 58, 58, 0.185);
+  border-radius: 20px;
+  border: solid rgb(255, 102, 0) 1px;
+  display: flex;
+  gap: 30px;
+}
+.team-member-role {
+  font-style: italic;
+  color: rgb(226 191 176 / var(--tw-text-opacity, 1));
+  font-size: clamp(13px, 2vw, 20px);
+}
+.team-members-name {
+  font-weight: bold;
+  color: white;
+  font-size: clamp(15px, 2vw, 20px);
+  font-family: Sora Bold;
+  font-family: Bebas Neue;
+}
+.team-member-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
 
+.team-members-info {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+}
+
+.contact-us-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  gap: 20px;
+  padding-bottom: 50px;
+  padding-top: 40px;
+}
+.contact-us-title {
+  font-weight: bold;
+  color: white;
+  font-size: clamp(20px, 2vw, 40px);
+  font-family: Sora Bold;
+}
+.contact-us-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-us-item a {
+  color: white;
+  font-family: Sora;
+  font-size: clamp(14px, 2vw, 14px);
+  text-decoration: none;
+}
+
+.contact-us-container svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #cc5500; /* or #00bcd4 for cyan */
+  stroke-width: 1.8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.whatsapp-svg path:last-child {
+  fill: none;
+}
+.whatsapp-svg path:first-child {
+  fill: #cc5500;
+  stroke: none;
+}
 @media only screen and (max-width: 992px) {
   .main-body-homepage {
     padding-top: 150px;
@@ -369,19 +458,26 @@ input:focus {
     align-items: center;
     padding-top: 100px;
   }
-  .player-id-container-and-select-package-container{
+  .player-id-container-and-select-package-container {
     width: 100%;
   }
   .order-summary-container {
     width: 100%;
     margin-top: 30px;
   }
-  .why-choose-reasons-container{
+  .why-choose-reasons-container {
     flex-direction: column;
     width: 100%;
   }
-  .why-choose-reason{
+  .why-choose-reason {
     padding: 30px;
+  }
+  .team-members-info {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .team-member {
+    width: 100%;
   }
 }
 /* linear-gradient(to bottom, #201203, #593004) */
