@@ -225,8 +225,7 @@ export function HomePage() {
             <div>
               <p className="team-members-name">Paul Foli</p>
               <p className="team-member-role">
-                "Bought 1060 diamonds and they arrived before I even closed my
-                browser. Absolute beasts!"
+                —Web Developer
               </p>
             </div>
           </div>
@@ -240,8 +239,7 @@ export function HomePage() {
             <div>
               <p className="team-members-name">ALbert Joe</p>
               <p className="team-member-role">
-                "Bought 1060 diamonds and they arrived before I even closed my
-                browser. Absolute beasts!"
+                —Top-Up Agent
               </p>
             </div>
           </div>

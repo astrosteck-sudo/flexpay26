@@ -1,27 +1,24 @@
 import "./PageHeader.css";
 //import { NavLink } from "react-router-dom";
-import hamburgerButton from "../assets/icons/hamburger-button-4.png";
 import { useState } from "react";
 import { Link } from "react-scroll";
 
 export function PageHeader() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
-  function handleMobileNavOpen() {
-    setIsMobileNavOpen(!isMobileNavOpen);
-  }
 
   const smoothScroll = (parameter) => {
     if (parameter === "order") {
       document.getElementById("order")?.scrollIntoView({
         behavior: "smooth",
       });
-    }else{
+    } else {
       document.getElementById("contact")?.scrollIntoView({
-      behavior: "smooth",
-    });
+        behavior: "smooth",
+      });
     }
   };
+
   return (
     <>
       <div className="pageheader-container">
@@ -46,31 +43,32 @@ export function PageHeader() {
           <p>LOGIN</p>
         </div>
 
-        <img
-          src={hamburgerButton}
-          alt=""
-          className="page-header-hambuger-button"
-          onClick={handleMobileNavOpen}
-        />
+        <button
+          className={`hamburger ${isMobileNavOpen ? "open" : ""}`}
+          onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
 
       <div
         className={`mobile-pageheader-links ${isMobileNavOpen ? "open" : "close"}`}
       >
         <button
-            onClick={() => smoothScroll("order")}
-            className="page-header-link"
-          >
-            Pricing
-          </button>
+          onClick={() => smoothScroll("order")}
+          className="page-header-link"
+        >
+          Pricing
+        </button>
 
-          <button
-            onClick={() => smoothScroll("support")}
-            className="page-header-link"
-          >
-            Support
-          </button>
-
+        <button
+          onClick={() => smoothScroll("support")}
+          className="page-header-link"
+        >
+          Support
+        </button>
 
         <div className="mobile-pageheader-logins-buttons">
           <p>LOGIN</p>
