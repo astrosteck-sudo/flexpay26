@@ -11,7 +11,7 @@ export function SiteFooter() {
           Level up your gaming experience today.
         </div>
         <div className="footer-copyright">
-          © 2024 FLEXPAY26. ALL RIGHTS RESERVED.
+          © 2026 FLEXPAY26. ALL RIGHTS RESERVED.
         </div>
       </div>
     </>
