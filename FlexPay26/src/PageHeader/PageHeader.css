@@ -9,6 +9,7 @@
   background-color: rgb(82, 24, 3);
   background: linear-gradient(to bottom, #000000, #1f1001);
   /* width: 100vw; */
+  
 }
 .pageheader-links {
   display: flex;
@@ -45,6 +46,9 @@
 .page-header-link {
   text-decoration: none;
   color: rgb(230, 161, 140);
+  border: none;
+  background-color: inherit;
+  padding: 10px;
 }
 .home-link.active {
   border-bottom: solid rgb(224, 77, 32);
@@ -80,7 +84,11 @@
     justify-content: space-between;
     padding-left: 30px;
     padding-right: 30px;
-    position: sticky;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 
     
   }
@@ -95,7 +103,8 @@
     padding-bottom: 20px;
     position: fixed;
     width: 100vw;
-    border: solid red;
+    padding-top: 120px;
+
   }
   .mobile-pageheader-links.open {
     animation: slidedown 0.4s ease forwards;

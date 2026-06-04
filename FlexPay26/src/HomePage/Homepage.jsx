@@ -2,9 +2,20 @@ import "./HomePage.css";
 import diamondsImage from "../assets/icons/diamonds.png";
 
 export function HomePage() {
+  const smoothScroll = (parameter) => {
+    if (parameter === "diamonds") {
+      document.getElementById("payment")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    } else {
+      document.getElementById("packages")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <>
-      <div className="main-body-homepage">
+      <div className="main-body-homepage" id="home">
         <p className="main-body-homepage-top-up-text">
           Top Up Free Fire{" "}
           <span className="diamonds-instantely-span">Diamonds Instantly</span>
@@ -17,17 +28,23 @@ export function HomePage() {
         </p>
 
         <div className="main-body-homepage-buttons">
-          <button className="main-body-homepage-button-buy-diamonds">
+          <button
+            onClick={() => smoothScroll("diamonds")}
+            className="main-body-homepage-button-buy-diamonds"
+          >
             Buy Diamonds
           </button>
-          <button className="main-body-homepage-button-view-packages">
+          <button
+            onClick={() => smoothScroll("packages")}
+            className="main-body-homepage-button-view-packages"
+          >
             View Packages
           </button>
         </div>
       </div>
 
-      <div className="main-body-user-orders-container">
-        <div className="player-id-container-and-select-package-container">
+      <section className="main-body-user-orders-container" id="order">
+        <div className="player-id-container-and-select-package-container" id='packages'>
           <div className="player-id-container">
             <div className="game-profile-icon-and-enter-player-id-text">
               <div className="game-profile-icon">
@@ -104,7 +121,7 @@ export function HomePage() {
           </div>
         </div>
 
-        <div className="order-summary-container">
+        <div className="order-summary-container" id='payment'>
           <h2 className="order-summary-title">ORDER SUMMARY</h2>
           <div className="order-summary-items-and-values">
             <p className="order-summary-item">Player ID</p>{" "}
@@ -134,9 +151,9 @@ export function HomePage() {
             </button>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="why-choose-flex-pay-container">
+      <div className="why-choose-flex-pay-container" id="why-choose">
         <h2 className="why-choose-flex-pay-title">WHY CHOOSE FLEX PAY?</h2>
 
         <div className="why-choose-reasons-container">
@@ -198,10 +215,10 @@ export function HomePage() {
       <div className="team-members-container">
         <h2 className="team-members-title">MEET THE TEAM</h2>
 
-        <div className="team-members-info">
+        <div className="team-members-info" id="team">
           <div className="team-member">
             <img
-              src="./public/team_images/testiminial_1.jpg"
+              src="./team_images/testiminial_1.jpg"
               alt="Team Member"
               className="team-member-image"
             />
@@ -216,7 +233,7 @@ export function HomePage() {
 
           <div className="team-member">
             <img
-              src="./public/team_images/testiminial_1.jpg"
+              src="./team_images/testiminial_1.jpg"
               alt="Team Member"
               className="team-member-image"
             />
@@ -230,7 +247,7 @@ export function HomePage() {
           </div>
         </div>
 
-        <div className="contact-us-container">
+        <div className="contact-us-container" id="contact">
           <h2 className="contact-us-title">Need Support?</h2>
           <div className="contact-us-item">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -238,9 +255,9 @@ export function HomePage() {
               <polyline points="2,4 12,13 22,4" />
             </svg>
             <a
-              href={`mailto:episilionhostels26@gmail.com?subject=${encodeURIComponent("Hostel Inquiry")}&body=${encodeURIComponent("Hello, I would like to inquire about...")}`}
+              href={`mailto:beltartrangzaddie@gmail.com?subject=${encodeURIComponent("Flexpay26 Support")}&body=${encodeURIComponent("Hello Flexpay26 Support Team,\n\nI need assistance with...")}`}
             >
-              episilionhostels26@gmail.com
+              beltartrangzaddie@gmail.com
             </a>
           </div>
           <div className="contact-us-item">

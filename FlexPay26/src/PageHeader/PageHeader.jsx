@@ -1,8 +1,8 @@
 import "./PageHeader.css";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+//import { NavLink } from "react-router-dom";
 import hamburgerButton from "../assets/icons/hamburger-button-4.png";
 import { useState } from "react";
+import { Link } from "react-scroll";
 
 export function PageHeader() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -10,23 +10,36 @@ export function PageHeader() {
   function handleMobileNavOpen() {
     setIsMobileNavOpen(!isMobileNavOpen);
   }
+
+  const smoothScroll = (parameter) => {
+    if (parameter === "order") {
+      document.getElementById("order")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }else{
+      document.getElementById("contact")?.scrollIntoView({
+      behavior: "smooth",
+    });
+    }
+  };
   return (
     <>
       <div className="pageheader-container">
         <div className="pageheader-site-name">FLEXPAY26</div>
         <div className="pageheader-links">
-          <NavLink className="page-header-link home-link" to="/">
-            Home
-          </NavLink>
-          <NavLink className="page-header-link pricing-link" to="/hh">
+          <button
+            onClick={() => smoothScroll("order")}
+            className="page-header-link"
+          >
             Pricing
-          </NavLink>
-          <NavLink className="page-header-link track-link" to="/hhjj">
-            Track Order
-          </NavLink>
-          <NavLink className="page-header-link support-lin" to="/hhh">
+          </button>
+
+          <button
+            onClick={() => smoothScroll("support")}
+            className="page-header-link"
+          >
             Support
-          </NavLink>
+          </button>
         </div>
 
         <div className="pageheader-logins-buttons">
@@ -44,18 +57,20 @@ export function PageHeader() {
       <div
         className={`mobile-pageheader-links ${isMobileNavOpen ? "open" : "close"}`}
       >
-        <NavLink className="page-header-link home-link" to="/">
-          Home
-        </NavLink>
-        <NavLink className="page-header-link pricing-link" to="/">
-          Pricing
-        </NavLink>
-        <NavLink className="page-header-link track-link" to="/">
-          Track Order
-        </NavLink>
-        <NavLink className="page-header-link support-lin" to="/">
-          Support
-        </NavLink>
+        <button
+            onClick={() => smoothScroll("order")}
+            className="page-header-link"
+          >
+            Pricing
+          </button>
+
+          <button
+            onClick={() => smoothScroll("support")}
+            className="page-header-link"
+          >
+            Support
+          </button>
+
 
         <div className="mobile-pageheader-logins-buttons">
           <p>LOGIN</p>
