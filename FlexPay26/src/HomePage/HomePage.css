@@ -7,7 +7,7 @@
 
   background-image:
     linear-gradient(rgba(30, 15, 0, 0.65), rgba(30, 15, 0, 0.65)),
-    url("./halo_iamge.png");
+    url("/halo_iamge.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
