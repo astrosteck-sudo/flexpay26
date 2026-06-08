@@ -1,0 +1,7 @@
+.signUp-error-message{
+    margin-top: 20px;
+    color: red;
+    text-align: center;
+    font-size: clamp(10px, 2vw, 20px);
+    font-family: Sora;
+}

@@ -27,7 +27,42 @@
   color: black;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.pageheader-logins-link{
+.user-logged-in-pill {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background: linear-gradient(to bottom, #613203, #613203);
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.user-logged-in-link {
+  display: flex;
+  gap: 20px;
+  text-decoration: none;
+  height: 100%;
+  align-items: center;
+}
+.page-header-user-initials {
+  width: 40px;
+  height: 80%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-family: Sora Bold;
+}
+.page-header-username {
+  color: wheat;
+  font-family: Sora bold;
+}
+.pageheader-logins-link {
   text-decoration: none;
   color: black;
 }
@@ -67,6 +102,9 @@
 
 @media only screen and (max-width: 992px) {
   .pageheader-links {
+    display: none;
+  }
+  .user-logged-in-pill {
     display: none;
   }
   .pageheader-logins-buttons {
@@ -172,5 +210,18 @@
 
   .hamburger.open span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
+  }
+  .mobile-user-logged-in-pill {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background: linear-gradient(to bottom, #613203, #613203);
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }

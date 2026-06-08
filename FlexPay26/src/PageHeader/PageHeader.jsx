@@ -2,6 +2,8 @@ import "./PageHeader.css";
 //import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-scroll";
+import { getInitials } from "../utils/initials";
+import { use } from "react";
 
 export function PageHeader() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -17,6 +19,10 @@ export function PageHeader() {
       });
     }
   };
+
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user);
 
   return (
     <>
@@ -38,11 +44,26 @@ export function PageHeader() {
           </button>
         </div>
 
-        <div className="pageheader-logins-buttons">
-          <a href="/login" className="pageheader-logins-link">
-            <p>LOGIN</p>
-          </a>
-        </div>
+        {token ? (
+          ""
+        ) : (
+          <div className="pageheader-logins-buttons">
+            <a href="/login" className="pageheader-logins-link">
+              <p>LOGIN</p>
+            </a>
+          </div>
+        )}
+
+        {token && (
+          <div className="user-logged-in-pill">
+            <a href="/" className="user-logged-in-link">
+              <div className="page-header-user-initials">
+                {getInitials(user.username)}
+              </div>
+              <p className="page-header-username">{user.username}</p>
+            </a>
+          </div>
+        )}
 
         <button
           className={`hamburger ${isMobileNavOpen ? "open" : ""}`}
@@ -71,11 +92,26 @@ export function PageHeader() {
           Support
         </button>
 
-        <div className="mobile-pageheader-logins-buttons">
-          <a href="/login" className="pageheader-logins-link">
-            <p>LOGIN</p>
-          </a>
-        </div>
+        {token ? (
+          ""
+        ) : (
+          <div className="pageheader-logins-buttons">
+            <a href="/login" className="pageheader-logins-link">
+              <p>LOGIN</p>
+            </a>
+          </div>
+        )}
+
+        {token && (
+          <div className="mobile-user-logged-in-pill">
+            <a href="/" className="user-logged-in-link">
+              <div className="page-header-user-initials">
+                {getInitials(user.username)}
+              </div>
+              <p className="page-header-username">{user.username}</p>
+            </a>
+          </div>
+        )}
       </div>
     </>
   );

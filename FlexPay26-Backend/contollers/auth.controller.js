@@ -1,16 +1,21 @@
-const db = require("../config/db");       // Import MySQL connection pool
-const bcrypt = require("bcrypt");         // For hashing and comparing passwords
-const jwt = require("jsonwebtoken");      // For generating JWT tokens
+const db = require("../config/db"); // Import MySQL connection pool
+const bcrypt = require("bcrypt"); // For hashing and comparing passwords
+const jwt = require("jsonwebtoken"); // For generating JWT tokens
 
 // ======================= REGISTER CONTROLLER =======================
 const register = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, phoneNumber } = req.body;
 
     // Validate required fields
-    if (!username || !email || !password) {
+    if (!username || !email || !password || !phoneNumber) {
       return res.status(400).json({
         message: "All fields are required",
+      });
+    }
+    if (phoneNumber.length != 10) {
+      return res.status(400).json({
+        message: "Phone number must 10 digits long",
       });
     }
 
@@ -32,16 +37,18 @@ const register = async (req, res) => {
     await db.query(
       `
       INSERT INTO users
-      (username, email, password)
-      VALUES (?,?,?)
+      (username, email, password, phone)
+      VALUES (?,?,?,?)
       `,
-      [username, email, hashedPassword],
+      [username, email, hashedPassword, phoneNumber],
     );
 
     // Success response
-    res.status(201).json({
-      message: "Account created successfully",
-    });
+    setTimeout(() => {
+      res.status(201).json({
+        message: "Account created successfully",
+      });
+    }, 2000);
   } catch (err) {
     console.error(err);
 
@@ -54,17 +61,17 @@ const register = async (req, res) => {
 // ======================= LOGIN CONTROLLER =======================
 const login = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const email = req.body.email?.trim();
+    const password = req.body.password?.trim();
 
     // Find user by email
-    const [users] = await db.query(
-      "SELECT * FROM users WHERE email=?",
-      [email]
-    );
+    const [users] = await db.query("SELECT * FROM users WHERE email=?", [
+      email,
+    ]);
 
     if (users.length === 0) {
       return res.status(401).json({
-        message: "Invalid credentials"
+        message: "Invalid credentials",
       });
     }
 
@@ -75,7 +82,7 @@ const login = async (req, res) => {
 
     if (!match) {
       return res.status(401).json({
-        message: "Invalid credentials"
+        message: "Invalid credentials",
       });
     }
 
@@ -83,12 +90,12 @@ const login = async (req, res) => {
     const token = jwt.sign(
       {
         user_id: user.user_id,
-        role: user.role
+        role: user.role,
       },
-      process.env.JWT_SECRET,   // Secret key stored in .env
+      process.env.JWT_SECRET, // Secret key stored in .env
       {
-        expiresIn: "7d"         // Token valid for 7 days
-      }
+        expiresIn: "7d", // Token valid for 7 days
+      },
     );
 
     // Success response with token and user info
@@ -98,15 +105,14 @@ const login = async (req, res) => {
         user_id: user.user_id,
         username: user.username,
         email: user.email,
-        role: user.role
-      }
+        role: user.role,
+      },
     });
-
   } catch (err) {
     console.error(err);
 
     res.status(500).json({
-      message: "Server Error"
+      message: "Server Error",
     });
   }
 };
@@ -114,5 +120,5 @@ const login = async (req, res) => {
 // Export controllers
 module.exports = {
   register,
-  login
+  login,
 };
