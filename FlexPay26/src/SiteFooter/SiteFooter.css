@@ -8,6 +8,11 @@
   padding: 50px;
   gap: 20px;
   background: linear-gradient(to bottom, #2a1703, #2d1903);
+
+  /* position: fixed;  */
+  bottom: 0;
+  left: 0;
+  width: 100vw;
 }
 
 .footer-content{

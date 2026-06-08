@@ -27,6 +27,10 @@
   color: black;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+.pageheader-logins-link{
+  text-decoration: none;
+  color: black;
+}
 .pageheader-site-name {
   font-family: Sora Bold;
   font-weight: bolder;

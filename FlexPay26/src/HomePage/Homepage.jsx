@@ -1,5 +1,7 @@
 import "./HomePage.css";
 import diamondsImage from "../assets/icons/diamonds.png";
+import { SiteFooter } from "../SiteFooter/SiteFooter";
+import { PageHeader } from "../PageHeader/PageHeader";
 
 export function HomePage() {
   const smoothScroll = (parameter) => {
@@ -15,6 +17,7 @@ export function HomePage() {
   };
   return (
     <>
+    <PageHeader />
       <div className="main-body-homepage" id="home">
         <p className="main-body-homepage-top-up-text">
           Top Up Free Fire{" "}
@@ -280,6 +283,8 @@ export function HomePage() {
           </div>
         </div>
       </div>
+
+      <SiteFooter></SiteFooter>
     </>
   );
 }

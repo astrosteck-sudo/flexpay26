@@ -1,22 +1,21 @@
-import './App.css'
-import { HomePage } from './HomePage/Homepage'
-import { PageHeader } from './PageHeader/PageHeader'
-import { Routes, Route } from 'react-router'
-import { SiteFooter } from './SiteFooter/SiteFooter'
+import "./App.css";
+import { HomePage } from "./HomePage/Homepage";
+import { Routes, Route } from "react-router-dom";
+import { SiteFooter } from "./SiteFooter/SiteFooter";
+import { Login } from "./Logins/Login";
+import { SignUp } from "./Logins/SignUp";
 
 function App() {
-  
-
   return (
     <>
-      <PageHeader/>
-      <HomePage></HomePage>
-      <SiteFooter></SiteFooter>
-      {/* <Routes>
-        <Route path='homepage' element={<HomePage></HomePage>}></Route>
-      </Routes> */}
+      {/* <Login></Login> */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path='login' element={<Login></Login>}/>
+        <Route path="signup" element={<SignUp/>}/>
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

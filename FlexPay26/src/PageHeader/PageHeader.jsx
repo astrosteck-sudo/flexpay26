@@ -6,7 +6,6 @@ import { Link } from "react-scroll";
 export function PageHeader() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
-
   const smoothScroll = (parameter) => {
     if (parameter === "order") {
       document.getElementById("order")?.scrollIntoView({
@@ -40,7 +39,9 @@ export function PageHeader() {
         </div>
 
         <div className="pageheader-logins-buttons">
-          <p>LOGIN</p>
+          <a href="/login" className="pageheader-logins-link">
+            <p>LOGIN</p>
+          </a>
         </div>
 
         <button
