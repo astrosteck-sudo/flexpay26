@@ -72,7 +72,9 @@ export function PageHeader() {
         </button>
 
         <div className="mobile-pageheader-logins-buttons">
-          <p>LOGIN</p>
+          <a href="/login" className="pageheader-logins-link">
+            <p>LOGIN</p>
+          </a>
         </div>
       </div>
     </>
