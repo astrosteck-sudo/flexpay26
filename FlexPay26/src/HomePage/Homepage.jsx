@@ -235,12 +235,12 @@ export function HomePage() {
 
           <div className="team-member">
             <img
-              src="./team_images/testiminial_1.jpg"
+              src="./team_images/testiminial_2.jpeg"
               alt="Team Member"
               className="team-member-image"
             />
             <div>
-              <p className="team-members-name">ALbert Joe</p>
+              <p className="team-members-name">ALbert Grant</p>
               <p className="team-member-role">
                 —Top-Up Agent
               </p>
