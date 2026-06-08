@@ -3,7 +3,6 @@ import "./PageHeader.css";
 import { useState } from "react";
 import { Link } from "react-scroll";
 import { getInitials } from "../utils/initials";
-import { use } from "react";
 
 export function PageHeader() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -95,7 +94,7 @@ export function PageHeader() {
         {token ? (
           ""
         ) : (
-          <div className="pageheader-logins-buttons">
+          <div className="mobile-pageheader-logins-buttons">
             <a href="/login" className="pageheader-logins-link">
               <p>LOGIN</p>
             </a>
