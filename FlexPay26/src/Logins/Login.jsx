@@ -34,7 +34,7 @@ export function Login() {
 
       localStorage.setItem("user", JSON.stringify(response.data.user));
 
-      navigate("/");
+      navigate("/userdashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
       setTimeout(() => {

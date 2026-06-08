@@ -106,6 +106,7 @@ const login = async (req, res) => {
         username: user.username,
         email: user.email,
         role: user.role,
+        created_at: user.created_at
       },
     });
   } catch (err) {

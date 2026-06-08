@@ -21,7 +21,6 @@ export function PageHeader() {
 
   const token = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user);
 
   return (
     <>
@@ -55,7 +54,7 @@ export function PageHeader() {
 
         {token && (
           <div className="user-logged-in-pill">
-            <a href="/" className="user-logged-in-link">
+            <a href="/userdashboard" className="user-logged-in-link">
               <div className="page-header-user-initials">
                 {getInitials(user.username)}
               </div>
@@ -103,7 +102,7 @@ export function PageHeader() {
 
         {token && (
           <div className="mobile-user-logged-in-pill">
-            <a href="/" className="user-logged-in-link">
+            <a href="/userdashboard" className="user-logged-in-link">
               <div className="page-header-user-initials">
                 {getInitials(user.username)}
               </div>

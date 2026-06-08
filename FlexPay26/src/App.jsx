@@ -5,6 +5,7 @@ import { SiteFooter } from "./SiteFooter/SiteFooter";
 import { Login } from "./Logins/Login";
 import { SignUp } from "./Logins/SignUp";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import { UserDashBoard } from "./UserDashBoard/UserDashBoard";
 
 function App() {
   return (
@@ -14,7 +15,14 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="login" element={<Login></Login>} />
         <Route path="signup" element={<SignUp />} />
-        {/* <Route path="/dashboard" element={<ProtectedRoute> <Dashboard /></ProtectedRoute>} /> */}
+        <Route
+          path="/userdashboard"
+          element={
+            <ProtectedRoute>
+              <UserDashBoard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );
