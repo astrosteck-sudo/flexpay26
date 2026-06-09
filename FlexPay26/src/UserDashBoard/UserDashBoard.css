@@ -233,7 +233,7 @@ svg polygon {
 .user-dashboard-header {
   padding: 20px;
   display: flex;
-  gap: 40px;
+  gap: 20px;
   align-items: center;
 
   width: 100%;
@@ -263,7 +263,7 @@ svg polygon {
 
   font-family: Sora bold;
   margin-left: auto;
-  min-width: 95px;
+  width: 200px;
 }
 .user-dashboard-logout-prompt.close{
   display: none;
