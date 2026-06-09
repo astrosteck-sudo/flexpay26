@@ -104,6 +104,10 @@
   width: 90%;
 
   box-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
+  transition: smooth ease 3s;
+}
+.login-submit-button:active{
+  transform: scale(.97);
 }
 
 

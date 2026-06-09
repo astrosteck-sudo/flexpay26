@@ -17,7 +17,7 @@ export function HomePage() {
   };
   return (
     <>
-    <PageHeader />
+      <PageHeader />
       <div className="main-body-homepage" id="home">
         <p className="main-body-homepage-top-up-text">
           Top Up Free Fire{" "}
@@ -47,7 +47,10 @@ export function HomePage() {
       </div>
 
       <section className="main-body-user-orders-container" id="order">
-        <div className="player-id-container-and-select-package-container" id='packages'>
+        <div
+          className="player-id-container-and-select-package-container"
+          id="packages"
+        >
           <div className="player-id-container">
             <div className="game-profile-icon-and-enter-player-id-text">
               <div className="game-profile-icon">
@@ -124,7 +127,7 @@ export function HomePage() {
           </div>
         </div>
 
-        <div className="order-summary-container" id='payment'>
+        <div className="order-summary-container" id="payment">
           <h2 className="order-summary-title">ORDER SUMMARY</h2>
           <div className="order-summary-items-and-values">
             <p className="order-summary-item">Player ID</p>{" "}
@@ -150,7 +153,23 @@ export function HomePage() {
               className="player-input user-phone-number-input"
             />
             <button className="order-summary-confirm-button">
-              Confirm Order
+              <p>PAY WITH PAYSTACK</p>
+              <svg
+                className="money-icon"
+                xmlns="http://w3.org"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M3 6a1 1 0 0 0-1 1v10a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-1H4a1 1 0 0 1-1-1V6z"
+                  opacity="0.8"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M6 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6zm8 5.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
+                  clip-rule="evenodd"
+                />
+              </svg>
             </button>
           </div>
         </div>
@@ -227,9 +246,7 @@ export function HomePage() {
             />
             <div>
               <p className="team-members-name">Paul Foli</p>
-              <p className="team-member-role">
-                —Web Developer
-              </p>
+              <p className="team-member-role">—Web Developer</p>
             </div>
           </div>
 
@@ -241,9 +258,7 @@ export function HomePage() {
             />
             <div>
               <p className="team-members-name">ALbert Grant</p>
-              <p className="team-member-role">
-                —Top-Up Agent
-              </p>
+              <p className="team-member-role">—Top-Up Agent</p>
             </div>
           </div>
         </div>
