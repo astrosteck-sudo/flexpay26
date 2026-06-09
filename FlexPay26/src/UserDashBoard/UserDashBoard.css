@@ -248,6 +248,9 @@ svg polygon {
   padding-right: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   border-radius: 10px;
   font-size: clamp(14px, 2vw, 15px);
@@ -260,6 +263,7 @@ svg polygon {
 
   font-family: Sora bold;
   margin-left: auto;
+  min-width: 95px;
 }
 .user-dashboard-logout-prompt.close{
   display: none;
