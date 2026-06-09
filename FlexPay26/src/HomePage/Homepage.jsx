@@ -93,8 +93,8 @@ export function HomePage() {
                   alt="Diamonds"
                   className="diamonds-image"
                 />
-                <h2 className="package-option-diamonds-title">100 diamonds</h2>
-                <p className="package-option-diamonds-price">$1.99</p>
+                <h2 className="package-option-diamonds-title">583 diamonds</h2>
+                <p className="package-option-diamonds-price">₵61.00</p>
               </div>
               <div className="package-option-diamonds">
                 <img
@@ -102,8 +102,8 @@ export function HomePage() {
                   alt="Diamonds"
                   className="diamonds-image"
                 />
-                <h2 className="package-option-diamonds-title">100 diamonds</h2>
-                <p className="package-option-diamonds-price">$1.99</p>
+                <h2 className="package-option-diamonds-title">1188 diamonds</h2>
+                <p className="package-option-diamonds-price">₵120.00</p>
               </div>
               <div className="package-option-diamonds">
                 <img
@@ -111,8 +111,8 @@ export function HomePage() {
                   alt="Diamonds"
                   className="diamonds-image"
                 />
-                <h2 className="package-option-diamonds-title">100 diamonds</h2>
-                <p className="package-option-diamonds-price">$1.99</p>
+                <h2 className="package-option-diamonds-title">2420 diamonds</h2>
+                <p className="package-option-diamonds-price">₵240.00</p>
               </div>
               <div className="package-option-diamonds">
                 <img
@@ -120,8 +120,8 @@ export function HomePage() {
                   alt="Diamonds"
                   className="diamonds-image"
                 />
-                <h2 className="package-option-diamonds-title">100 diamonds</h2>
-                <p className="package-option-diamonds-price">$1.99</p>
+                <h2 className="package-option-diamonds-title">6160 diamonds</h2>
+                <p className="package-option-diamonds-price">₵590.04</p>
               </div>
             </div>
           </div>
