@@ -213,25 +213,123 @@ svg polygon {
   font-size: clamp(10px, 2vw, 13px);
 }
 
-.user-dashboard-recent-activity-wrapper{
+.user-dashboard-recent-activity-wrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;
   margin-bottom: 30px;
+}
+
+.right-arrow-svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #cc5500;
+  stroke-width: 1.8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.user-dashboard-header {
+  padding: 20px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+
+  width: 100%;
+  position: fixed;
+  background-color: rgb(82, 24, 3);
+  background: linear-gradient(to bottom, #000000, #1f1001);
+}
+
+.user-dashboard-logout{
+  color: wheat;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  border-radius: 10px;
+  font-size: clamp(14px, 2vw, 15px);
+
+  background-color: rgb(255, 102, 0);
+  color: black;
+  border: none;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.4));
+  box-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
+
+  font-family: Sora bold;
+  margin-left: auto;
+}
+.user-dashboard-logout-prompt.close{
+  display: none;
+}
+.user-dashboard-logout-prompt.open{
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1000;
+  color: white;
+}
+.user-dashboard-logut-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background: linear-gradient(to bottom, #1f1001, #1f1001);
+  gap: 15px;
+  border-radius: 10px;
+}
+.user-dashboard-logut-container p:nth-child(1) {
+  font-family: Sora bold;
+  font-size: clamp(15px, 2vw, 20px);
+  color: wheat;
+}
+.user-dashboard-logut-container p:nth-child(2) {
+  font-family: Sora;
+  font-size: clamp(13px, 2vw, 13px);
+  color: white;
+}
+
+.user-dashboard-logut-buttons{
+  display: flex;
+  gap: 20px;
+}
+.user-dashboard-logut-buttons button{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: solid rgb(255, 102, 0) 1px;
+  border-radius: 10px;
+  background-color: inherit;
+  color: white;
+  font-family: Sora bold;
+}
+.user-dashboard-logut-buttons button:nth-child(2) {
+  color: black;
+  background-color: red;
+  border: none;
 }
 @media only screen and (max-width: 992px) {
   .user-dashBoard-container {
     padding-left: 10px;
     padding-right: 10px;
   }
-  .user-dashboard-recent-activity-container, .user-dashboard-recent-activity {
+  .user-dashboard-recent-activity-container,
+  .user-dashboard-recent-activity {
     padding-left: 10px;
     padding-right: 10px;
   }
-  .user-dashboard-recent-activity-money-container{
+  .user-dashboard-recent-activity-money-container {
     flex-direction: column;
   }
-  .user-dashboard-recent-activity-diamsonds{
+  .user-dashboard-recent-activity-diamsonds {
     height: 50px;
   }
 }
