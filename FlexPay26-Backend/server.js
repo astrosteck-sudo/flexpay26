@@ -42,6 +42,8 @@ const db = require("./config/db");
 // Mount authentication routes under /api/auth
 app.use("/api/auth", require("./routes/auth.routes"));
 
+app.use("/api/health", require("./routes/health.routes"));
+
 // ======================= SERVER START =======================
 // Use PORT from environment variables or default to 5000
 const PORT = process.env.PORT || 5000;
