@@ -7,7 +7,7 @@ import api from "../axios";
 
 export function Login() {
   const navigate = useNavigate();
-  // const [loading, setLoading] = useState(false);
+  const [loggingIn, setLoggingIn] = useState(false);
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     email: "",
@@ -26,8 +26,10 @@ export function Login() {
 
     //setLoading(true);
     setError("");
+    setLoggingIn(true)
 
     try {
+      
       const response = await api.post("/auth/login", formData);
 
       localStorage.setItem("token", response.data.token);
@@ -35,7 +37,9 @@ export function Login() {
       localStorage.setItem("user", JSON.stringify(response.data.user));
 
       navigate("/userdashboard");
+      setLoggingIn(false)
     } catch (err) {
+      setLoggingIn(false)
       setError(err.response?.data?.message || "Login failed");
       setTimeout(() => {
         setError('')
@@ -60,7 +64,7 @@ export function Login() {
         <form className="login-form" onSubmit={handleSubmit}>
           <p className="login-form-label">Email Address</p>
           <input
-            type="text"
+            type="email"
             name="email"
             required
             placeholder="warrior@gmail.com"
@@ -80,7 +84,7 @@ export function Login() {
             onChange={handleChange}
           />
 
-          <button className="login-submit-button">Login</button>
+          <button className="login-submit-button">{loggingIn ? 'Getting you in' : 'Login'}</button>
           <p className="signUp-error-message">{error}</p>
         </form>
 
