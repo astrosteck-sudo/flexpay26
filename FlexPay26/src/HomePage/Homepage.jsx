@@ -2,8 +2,12 @@ import "./HomePage.css";
 import diamondsImage from "../assets/icons/diamonds.png";
 import { SiteFooter } from "../SiteFooter/SiteFooter";
 import { PageHeader } from "../PageHeader/PageHeader";
+import { useState } from "react";
 
 export function HomePage() {
+
+
+  //THIS HANDLES THE SCROLL BEHAVOUR 
   const smoothScroll = (parameter) => {
     if (parameter === "diamonds") {
       document.getElementById("payment")?.scrollIntoView({
@@ -15,6 +19,61 @@ export function HomePage() {
       });
     }
   };
+
+  const [userPlayerId, setUserPlayerId] = useState('');
+  const [diamondPackagePrice, setDiamondPackagePrice] = useState(61);
+  const [diamondPackage, setDiamonPackage] = useState('583')
+  const [firstDiamondPackage, setFirstDiamondPackage] = useState(true)
+  const [secondDiamondPackage, setSecondDiamondPackage] = useState(false)
+  const [thirdDiamondPackage, setThirdDiamondPackage] = useState(false)
+  const [fourthDiamondPackage, setFourthDiamondPackage] = useState(false)
+
+
+  const handleChange = (e) => {
+    setUserPlayerId(e.target.value);
+  };
+
+  // function handleDiamondPackage(parameter, booleanParam) {
+  //   console.log(parameter)
+  //   setBoolean(!booleanParam)
+  //   setDiamondPackagePrice(parameter);
+  // }
+
+  function handlefirstDiamondPackage(parameter, booleanParam, packageParam){
+    setFirstDiamondPackage(!booleanParam)
+    setSecondDiamondPackage(false)
+    setThirdDiamondPackage(false)
+    setFourthDiamondPackage(false)
+    setDiamondPackagePrice(parameter)
+    setDiamonPackage(packageParam)
+  }
+  function handlesecondDiamondPackage(parameter, booleanParam, packageParam){
+    setSecondDiamondPackage(!booleanParam)
+    setFirstDiamondPackage(false)
+    setThirdDiamondPackage(false)
+    setFourthDiamondPackage(false)
+    setDiamondPackagePrice(parameter)
+    setDiamonPackage(packageParam)
+  }
+  function handlethirdDiamondPackage(parameter, booleanParam, packageParam){
+    setThirdDiamondPackage(!booleanParam)
+    setFirstDiamondPackage(false)
+    setSecondDiamondPackage(false)
+    setFourthDiamondPackage(false)
+    setDiamondPackagePrice(parameter)
+    setDiamonPackage(packageParam)
+  }
+  function handlefourthDiamondPackage(parameter, booleanParam, packageParam){
+    setFourthDiamondPackage(!booleanParam)
+    setFirstDiamondPackage(false)
+    setSecondDiamondPackage(false)
+    setThirdDiamondPackage(false)
+    setDiamondPackagePrice(parameter)
+    setDiamonPackage(packageParam)
+  }
+  
+
+  
   return (
     <>
       <PageHeader />
@@ -67,9 +126,13 @@ export function HomePage() {
               </h2>
             </div>
             <input
-              type="text"
-              placeholder="Enter Player ID"
+              type="number"
+              name="userPlayerId"
+              placeholder="Make sure to enter an accurate player Id"
               className="player-input"
+              value={userPlayerId}
+              onChange={handleChange}
+              maxLength={10}
             />
           </div>
           <div className="select-package-container">
@@ -87,7 +150,10 @@ export function HomePage() {
             </div>
 
             <div className="package-options-diamonds-container">
-              <div className="package-option-diamonds">
+              <div
+                className={`package-option-diamonds ${firstDiamondPackage ? 'firstDiamondPackage' :''}`}
+                onClick={() => handlefirstDiamondPackage(61, firstDiamondPackage, 583)}
+              >
                 <img
                   src={diamondsImage}
                   alt="Diamonds"
@@ -96,7 +162,10 @@ export function HomePage() {
                 <h2 className="package-option-diamonds-title">583 diamonds</h2>
                 <p className="package-option-diamonds-price">₵61.00</p>
               </div>
-              <div className="package-option-diamonds">
+              <div
+                className={`package-option-diamonds ${secondDiamondPackage ? 'secondDiamondPackage' :''}`}
+                onClick={() => handlesecondDiamondPackage(120, secondDiamondPackage, 1188)}
+              >
                 <img
                   src={diamondsImage}
                   alt="Diamonds"
@@ -105,7 +174,10 @@ export function HomePage() {
                 <h2 className="package-option-diamonds-title">1188 diamonds</h2>
                 <p className="package-option-diamonds-price">₵120.00</p>
               </div>
-              <div className="package-option-diamonds">
+              <div
+                className={`package-option-diamonds ${thirdDiamondPackage ? 'thirdDiamondPackage' :''}`}
+                onClick={() => handlethirdDiamondPackage(240, thirdDiamondPackage, 2420)}
+              >
                 <img
                   src={diamondsImage}
                   alt="Diamonds"
@@ -114,7 +186,10 @@ export function HomePage() {
                 <h2 className="package-option-diamonds-title">2420 diamonds</h2>
                 <p className="package-option-diamonds-price">₵240.00</p>
               </div>
-              <div className="package-option-diamonds">
+              <div
+                className={`package-option-diamonds ${fourthDiamondPackage ? 'fourthDiamondPackage' :''}`}
+                onClick={() => handlefourthDiamondPackage(590, fourthDiamondPackage, 6160)}
+              >
                 <img
                   src={diamondsImage}
                   alt="Diamonds"
@@ -130,28 +205,28 @@ export function HomePage() {
         <div className="order-summary-container" id="payment">
           <h2 className="order-summary-title">ORDER SUMMARY</h2>
           <div className="order-summary-items-and-values">
-            <p className="order-summary-item">Player ID</p>{" "}
-            <p className="order-summary-value">123456789</p>
+            <p className="order-summary-item">Player ID</p>
+            <p className="order-summary-value">{userPlayerId || ''}</p>
           </div>
           <div className="order-summary-items-and-values">
             <p className="order-summary-item">Package</p>{" "}
-            <p className="order-summary-value">100 Diamonds</p>
+            <p className="order-summary-value">{diamondPackage} Diamonds</p>
           </div>
           <div className="order-summary-items-and-values last">
             <p className="order-summary-item">Price</p>{" "}
-            <p className="order-summary-value">$1.99</p>
+            <p className="order-summary-value">₵{diamondPackagePrice}</p>
           </div>
           <div className="order-summary-items-and-values-total-container">
             <h2 className="order-summary-total-text">TOTAL</h2>
             <p className="order-summary-value-grand-total">$1.99</p>
           </div>
           <div className="order-summary-phone-number-container">
-            <h2 className="order-summary-item">Phone Number</h2>
+            {/* <h2 className="order-summary-item">Phone Number</h2>
             <input
               type="number"
               placeholder="Enter Phone Number"
               className="player-input user-phone-number-input"
-            />
+            /> */}
             <button className="order-summary-confirm-button">
               <p>PAY WITH PAYSTACK</p>
               <svg

@@ -181,6 +181,36 @@ input:focus {
   border-radius: 15px;
   width: 23%;
 }
+
+.package-option-diamonds.firstDiamondPackage{
+  border: #ff6a00 solid 1px;
+  box-shadow: 0 0 8px rgb(255, 106, 0);
+}
+.package-option-diamonds.secondDiamondPackage{
+  border: #ff6a00 solid 1px;
+  box-shadow: 0 0 8px rgb(255, 106, 0);
+}
+.package-option-diamonds.thirdDiamondPackage{
+  border: #ff6a00 solid 1px;
+  box-shadow: 0 0 8px rgb(255, 106, 0);
+}
+.package-option-diamonds.fourthDiamondPackage{
+  border: #ff6a00 solid 1px;
+  box-shadow: 0 0 8px rgb(255, 106, 0);
+}
+/* .package-options-diamonds-container div:nth-child(1) {
+  border: solid red;
+}
+.package-options-diamonds-container div:nth-child(2) {
+  border: solid red;
+}
+.package-options-diamonds-container div:nth-child(3) {
+  border: solid red;
+}
+.package-options-diamonds-container div:nth-child(4) {
+  border: solid red;
+} */
+
 @media (max-width: 600px) {
   .package-option-diamonds {
     flex: 1 1 calc(50% - 0.5rem);
@@ -278,8 +308,9 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
 }
-.order-summary-confirm-button svg{
+.order-summary-confirm-button svg {
   width: 25px;
 }
 
@@ -469,7 +500,7 @@ input:focus {
 }
 
 @media only screen and (max-width: 992px) {
-  .main-body-homepage-buttons{
+  .main-body-homepage-buttons {
     flex-direction: column;
     gap: 10px;
   }
