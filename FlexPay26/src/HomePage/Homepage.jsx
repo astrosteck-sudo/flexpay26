@@ -218,7 +218,7 @@ export function HomePage() {
           </div>
           <div className="order-summary-items-and-values-total-container">
             <h2 className="order-summary-total-text">TOTAL</h2>
-            <p className="order-summary-value-grand-total">$1.99</p>
+            <p className="order-summary-value-grand-total">${diamondPackagePrice}</p>
           </div>
           <div className="order-summary-phone-number-container">
             {/* <h2 className="order-summary-item">Phone Number</h2>
