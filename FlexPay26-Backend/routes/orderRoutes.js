@@ -4,17 +4,14 @@ const router = express.Router();
 
 const authenticate = require("../middleware/auth.middleware");
 
-const {
-  createOrder,
-  getMyOrders,
-  getDashboardStats,
-} = require("../controllers/orderController");
+const { getOrderByReference } = require("../controllers/orderController");
 
+// router.post("/create", authenticate, createOrder);
 
-router.post("/create", authenticate, createOrder);
+//router.get("/my-orders", authenticate, getMyOrders);
 
-router.get("/my-orders", authenticate, getMyOrders);
+ //outer.get("/dashboard", authenticate, getDashboardStats);
 
-router.get("/dashboard", authenticate, getDashboardStats);
+router.get("/reference/:reference",authenticate, getOrderByReference);
 
 module.exports = router;

@@ -46,6 +46,19 @@ app.use("/api/health", require("./routes/health.routes"));
 
 app.use("/api/orders", require("./routes/orderRoutes"));
 
+//app.use("/api/payment", require("./routes/orderRoutes"));
+
+app.use("/api/packages", require("./routes/packageRoutes"));
+
+app.use("/api/payment", require("./routes/paymentRoutes"));
+
+app.use(
+  "/api/payment/webhook",
+  express.raw({
+    type: "application/json",
+  }),
+);
+
 // ======================= SERVER START =======================
 // Use PORT from environment variables or default to 5000
 const PORT = process.env.PORT || 5000;

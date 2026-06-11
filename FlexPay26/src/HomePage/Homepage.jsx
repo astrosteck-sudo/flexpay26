@@ -3,11 +3,10 @@ import diamondsImage from "../assets/icons/diamonds.png";
 import { SiteFooter } from "../SiteFooter/SiteFooter";
 import { PageHeader } from "../PageHeader/PageHeader";
 import { useState } from "react";
+import api from "../axios";
 
 export function HomePage() {
-
-
-  //THIS HANDLES THE SCROLL BEHAVOUR 
+  //THIS HANDLES THE SCROLL BEHAVOUR
   const smoothScroll = (parameter) => {
     if (parameter === "diamonds") {
       document.getElementById("payment")?.scrollIntoView({
@@ -20,14 +19,13 @@ export function HomePage() {
     }
   };
 
-  const [userPlayerId, setUserPlayerId] = useState('');
+  const [userPlayerId, setUserPlayerId] = useState("");
   const [diamondPackagePrice, setDiamondPackagePrice] = useState(61);
-  const [diamondPackage, setDiamonPackage] = useState('583')
-  const [firstDiamondPackage, setFirstDiamondPackage] = useState(true)
-  const [secondDiamondPackage, setSecondDiamondPackage] = useState(false)
-  const [thirdDiamondPackage, setThirdDiamondPackage] = useState(false)
-  const [fourthDiamondPackage, setFourthDiamondPackage] = useState(false)
-
+  const [diamondPackage, setDiamonPackage] = useState("1");
+  const [firstDiamondPackage, setFirstDiamondPackage] = useState(true);
+  const [secondDiamondPackage, setSecondDiamondPackage] = useState(false);
+  const [thirdDiamondPackage, setThirdDiamondPackage] = useState(false);
+  const [fourthDiamondPackage, setFourthDiamondPackage] = useState(false);
 
   const handleChange = (e) => {
     setUserPlayerId(e.target.value);
@@ -39,41 +37,83 @@ export function HomePage() {
   //   setDiamondPackagePrice(parameter);
   // }
 
-  function handlefirstDiamondPackage(parameter, booleanParam, packageParam){
-    setFirstDiamondPackage(!booleanParam)
-    setSecondDiamondPackage(false)
-    setThirdDiamondPackage(false)
-    setFourthDiamondPackage(false)
-    setDiamondPackagePrice(parameter)
-    setDiamonPackage(packageParam)
+  function handlefirstDiamondPackage(parameter, booleanParam, packageParam) {
+    setFirstDiamondPackage(!booleanParam);
+    setSecondDiamondPackage(false);
+    setThirdDiamondPackage(false);
+    setFourthDiamondPackage(false);
+    setDiamondPackagePrice(parameter);
+    setDiamonPackage(packageParam);
   }
-  function handlesecondDiamondPackage(parameter, booleanParam, packageParam){
-    setSecondDiamondPackage(!booleanParam)
-    setFirstDiamondPackage(false)
-    setThirdDiamondPackage(false)
-    setFourthDiamondPackage(false)
-    setDiamondPackagePrice(parameter)
-    setDiamonPackage(packageParam)
+  function handlesecondDiamondPackage(parameter, booleanParam, packageParam) {
+    setSecondDiamondPackage(!booleanParam);
+    setFirstDiamondPackage(false);
+    setThirdDiamondPackage(false);
+    setFourthDiamondPackage(false);
+    setDiamondPackagePrice(parameter);
+    setDiamonPackage(packageParam);
   }
-  function handlethirdDiamondPackage(parameter, booleanParam, packageParam){
-    setThirdDiamondPackage(!booleanParam)
-    setFirstDiamondPackage(false)
-    setSecondDiamondPackage(false)
-    setFourthDiamondPackage(false)
-    setDiamondPackagePrice(parameter)
-    setDiamonPackage(packageParam)
+  function handlethirdDiamondPackage(parameter, booleanParam, packageParam) {
+    setThirdDiamondPackage(!booleanParam);
+    setFirstDiamondPackage(false);
+    setSecondDiamondPackage(false);
+    setFourthDiamondPackage(false);
+    setDiamondPackagePrice(parameter);
+    setDiamonPackage(packageParam);
   }
-  function handlefourthDiamondPackage(parameter, booleanParam, packageParam){
-    setFourthDiamondPackage(!booleanParam)
-    setFirstDiamondPackage(false)
-    setSecondDiamondPackage(false)
-    setThirdDiamondPackage(false)
-    setDiamondPackagePrice(parameter)
-    setDiamonPackage(packageParam)
+  function handlefourthDiamondPackage(parameter, booleanParam, packageParam) {
+    setFourthDiamondPackage(!booleanParam);
+    setFirstDiamondPackage(false);
+    setSecondDiamondPackage(false);
+    setThirdDiamondPackage(false);
+    setDiamondPackagePrice(parameter);
+    setDiamonPackage(packageParam);
   }
-  
 
-  
+  // const fetchPackages = async () => {
+  //     try {
+  //       const response = await axios.get(`${API_URL}/api/packages`);
+
+  //       setPackages(response.data.packages);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+
+  const handlePayment = async () => {
+    try {
+      if (!userPlayerId || !userPlayerId) {
+        alert("Please fill all fields");
+        return;
+      }
+
+      // setLoading(true);
+
+      const token = localStorage.getItem("token");
+      console.log(diamondPackage)
+      const response = await api.post(
+        `/payment/initialize`,
+        {
+          player_id: userPlayerId,
+          package_id: diamondPackage,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      window.location.href = response.data.authorization_url;
+    } catch (error) {
+      console.error(error);
+
+      alert(error.response?.data?.message || "Payment initialization failed");
+    } finally {
+      // setLoading(false);
+    }
+  };
+
   return (
     <>
       <PageHeader />
@@ -151,8 +191,10 @@ export function HomePage() {
 
             <div className="package-options-diamonds-container">
               <div
-                className={`package-option-diamonds ${firstDiamondPackage ? 'firstDiamondPackage' :''}`}
-                onClick={() => handlefirstDiamondPackage(61, firstDiamondPackage, 583)}
+                className={`package-option-diamonds ${firstDiamondPackage ? "firstDiamondPackage" : ""}`}
+                onClick={() =>
+                  handlefirstDiamondPackage(61, firstDiamondPackage, 1)
+                }
               >
                 <img
                   src={diamondsImage}
@@ -163,8 +205,10 @@ export function HomePage() {
                 <p className="package-option-diamonds-price">₵61.00</p>
               </div>
               <div
-                className={`package-option-diamonds ${secondDiamondPackage ? 'secondDiamondPackage' :''}`}
-                onClick={() => handlesecondDiamondPackage(120, secondDiamondPackage, 1188)}
+                className={`package-option-diamonds ${secondDiamondPackage ? "secondDiamondPackage" : ""}`}
+                onClick={() =>
+                  handlesecondDiamondPackage(120, secondDiamondPackage, 2)
+                }
               >
                 <img
                   src={diamondsImage}
@@ -175,8 +219,10 @@ export function HomePage() {
                 <p className="package-option-diamonds-price">₵120.00</p>
               </div>
               <div
-                className={`package-option-diamonds ${thirdDiamondPackage ? 'thirdDiamondPackage' :''}`}
-                onClick={() => handlethirdDiamondPackage(240, thirdDiamondPackage, 2420)}
+                className={`package-option-diamonds ${thirdDiamondPackage ? "thirdDiamondPackage" : ""}`}
+                onClick={() =>
+                  handlethirdDiamondPackage(240, thirdDiamondPackage, 3)
+                }
               >
                 <img
                   src={diamondsImage}
@@ -187,8 +233,10 @@ export function HomePage() {
                 <p className="package-option-diamonds-price">₵240.00</p>
               </div>
               <div
-                className={`package-option-diamonds ${fourthDiamondPackage ? 'fourthDiamondPackage' :''}`}
-                onClick={() => handlefourthDiamondPackage(590, fourthDiamondPackage, 6160)}
+                className={`package-option-diamonds ${fourthDiamondPackage ? "fourthDiamondPackage" : ""}`}
+                onClick={() =>
+                  handlefourthDiamondPackage(590, fourthDiamondPackage, 4)
+                }
               >
                 <img
                   src={diamondsImage}
@@ -206,7 +254,7 @@ export function HomePage() {
           <h2 className="order-summary-title">ORDER SUMMARY</h2>
           <div className="order-summary-items-and-values">
             <p className="order-summary-item">Player ID</p>
-            <p className="order-summary-value">{userPlayerId || ''}</p>
+            <p className="order-summary-value">{userPlayerId || ""}</p>
           </div>
           <div className="order-summary-items-and-values">
             <p className="order-summary-item">Package</p>{" "}
@@ -218,7 +266,9 @@ export function HomePage() {
           </div>
           <div className="order-summary-items-and-values-total-container">
             <h2 className="order-summary-total-text">TOTAL</h2>
-            <p className="order-summary-value-grand-total">${diamondPackagePrice}</p>
+            <p className="order-summary-value-grand-total">
+              ${diamondPackagePrice}
+            </p>
           </div>
           <div className="order-summary-phone-number-container">
             {/* <h2 className="order-summary-item">Phone Number</h2>
@@ -227,7 +277,10 @@ export function HomePage() {
               placeholder="Enter Phone Number"
               className="player-input user-phone-number-input"
             /> */}
-            <button className="order-summary-confirm-button">
+            <button
+              className="order-summary-confirm-button"
+              onClick={handlePayment}
+            >
               <p>PAY WITH PAYSTACK</p>
               <svg
                 className="money-icon"
