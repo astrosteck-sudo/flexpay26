@@ -66,7 +66,7 @@ export function SignUp() {
             type="text"
             name="username"
             required
-            placeholder="warrior@gmail.com"
+            placeholder="warrior"
             className="login-form-input"
             value={formData.username}
             onChange={handleChange}
@@ -77,7 +77,7 @@ export function SignUp() {
             type="email"
             name="email"
             required
-            placeholder="***********"
+            placeholder="warrior@gmail.com"
             className="login-form-input"
             value={formData.email}
             onChange={handleChange}
@@ -88,7 +88,7 @@ export function SignUp() {
             type="number"
             name="phoneNumber"
             required
-            placeholder="***********"
+            placeholder="0201905877"
             className="login-form-input"
             value={formData.phoneNumber}
             onChange={handleChange}

@@ -1,9 +1,9 @@
 // Load environment variables from .env file
 require("dotenv").config();
 
-const express = require("express");   // Import Express framework
-const cors = require("cors");         // Enable Cross-Origin Resource Sharing
-const helmet = require("helmet");     // Secure HTTP headers
+const express = require("express"); // Import Express framework
+const cors = require("cors"); // Enable Cross-Origin Resource Sharing
+const helmet = require("helmet"); // Secure HTTP headers
 
 const app = express();
 
@@ -43,6 +43,8 @@ const db = require("./config/db");
 app.use("/api/auth", require("./routes/auth.routes"));
 
 app.use("/api/health", require("./routes/health.routes"));
+
+app.use("/api/orders", require("./routes/orderRoutes"));
 
 // ======================= SERVER START =======================
 // Use PORT from environment variables or default to 5000
