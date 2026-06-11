@@ -12,7 +12,16 @@ const app = express();
 app.use(cors());
 
 // Parse incoming JSON request bodies
-app.use(express.json());
+// server.js
+
+// With this — skip JSON parsing for the Paystack webhook route:
+app.use((req, res, next) => {
+  if (req.originalUrl === "/api/payment/webhook") {
+    next(); // skip — raw body handled in the route itself
+  } else {
+    express.json()(req, res, next);
+  }
+});
 
 // Add security headers to protect against common vulnerabilities
 app.use(helmet());
