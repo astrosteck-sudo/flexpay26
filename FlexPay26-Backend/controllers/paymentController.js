@@ -91,155 +91,74 @@ const initializePayment = async (req, res) => {
 
 const paystackWebhook = async (req, res) => {
   try {
-    // Verify Paystack signature
+    // Verify signature
     const hash = crypto
-      .createHmac(
-        "sha512",
-        process.env.PAYSTACK_SECRET_KEY
-      )
-      .update(req.body)
+      .createHmac("sha512", process.env.PAYSTACK_SECRET_KEY)
+      .update(req.body) // raw buffer
       .digest("hex");
 
-    const signature =
-      req.headers["x-paystack-signature"];
-
+    const signature = req.headers["x-paystack-signature"];
     if (hash !== signature) {
-      return res.status(401).json({
-        message: "Invalid signature"
-      });
+      return res.status(401).json({ message: "Invalid signature" });
     }
 
-    // Parse Paystack event
-    const event = JSON.parse(
-      req.body.toString()
-    );
-
-    // Only process successful payments
+    // Parse event
+    const event = JSON.parse(req.body.toString());
     if (event.event !== "charge.success") {
       return res.sendStatus(200);
     }
 
     const paymentData = event.data;
+    const reference = paymentData.reference;
 
-    const reference =
-      paymentData.reference;
+    // Idempotency check
+    const [processed] = await db.query(
+      "SELECT * FROM processed_payments WHERE reference = ?",
+      [reference]
+    );
+    if (processed.length > 0) return res.sendStatus(200);
 
-    // Check if already processed
-    const [processed] =
-      await db.query(
-        `
-        SELECT *
-        FROM processed_payments
-        WHERE reference = ?
-        `,
-        [reference]
-      );
+    // Metadata
+    const { user_id, player_id, package_id } = paymentData.metadata;
 
-    if (processed.length > 0) {
-      return res.sendStatus(200);
-    }
-
-    // Extract metadata
-    const {
-      user_id,
-      player_id,
-      package_id
-    } = paymentData.metadata;
-
-    // Verify package exists
-    const [packages] =
-      await db.query(
-        `
-        SELECT *
-        FROM diamond_packages
-        WHERE package_id = ?
-        `,
-        [package_id]
-      );
-
-    if (packages.length === 0) {
-      return res.status(400).json({
-        message: "Package not found"
-      });
-    }
+    // Package validation
+    const [packages] = await db.query(
+      "SELECT * FROM diamond_packages WHERE package_id = ?",
+      [package_id]
+    );
+    if (packages.length === 0) return res.status(400).json({ message: "Package not found" });
 
     const pkg = packages[0];
-
-    // Verify amount paid
-    const paidAmount =
-      paymentData.amount / 100;
-
-    if (
-      Number(paidAmount) !==
-      Number(pkg.price)
-    ) {
-      return res.status(400).json({
-        message: "Amount mismatch"
-      });
+    const paidAmount = paymentData.amount / 100;
+    if (Number(paidAmount) !== Number(pkg.price)) {
+      return res.status(400).json({ message: "Amount mismatch" });
     }
 
     // Create order
     await db.query(
-      `
-      INSERT INTO orders (
-        user_id,
-        player_id,
-        diamond_amount,
-        amount_paid,
-        paystack_reference,
-        status
-      )
-      VALUES (?, ?, ?, ?, ?, ?)
-      `,
-      [
-        user_id,
-        player_id,
-        pkg.diamond_amount,
-        pkg.price,
-        reference,
-        "paid"
-      ]
+      `INSERT INTO orders (user_id, player_id, diamond_amount, amount_paid, paystack_reference, status)
+       VALUES (?, ?, ?, ?, ?, ?)`,
+      [user_id, player_id, pkg.diamond_amount, pkg.price, reference, "paid"]
     );
 
-    // Update user statistics
+    // Update user stats
     await db.query(
-      `
-      UPDATE users
-      SET
-        total_spent = total_spent + ?,
-        total_diamonds = total_diamonds + ?,
-        total_orders = total_orders + 1
-      WHERE user_id = ?
-      `,
-      [
-        pkg.price,
-        pkg.diamond_amount,
-        user_id
-      ]
+      `UPDATE users
+       SET total_spent = total_spent + ?, total_diamonds = total_diamonds + ?, total_orders = total_orders + 1
+       WHERE user_id = ?`,
+      [pkg.price, pkg.diamond_amount, user_id]
     );
 
-    // Save processed payment reference
-    await db.query(
-      `
-      INSERT INTO processed_payments
-      (reference)
-      VALUES (?)
-      `,
-      [reference]
-    );
+    // Save processed reference
+    await db.query("INSERT INTO processed_payments (reference) VALUES (?)", [reference]);
 
     return res.sendStatus(200);
-
   } catch (error) {
-
-    console.error(
-      "Webhook Error:",
-      error
-    );
-
+    console.error("Webhook Error:", error);
     return res.sendStatus(500);
   }
 };
+
 
 module.exports = {
   initializePayment,
