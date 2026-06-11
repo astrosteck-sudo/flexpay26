@@ -58,7 +58,7 @@ const initializePayment = async (req, res) => {
 
         amount: Number(pkg.price) * 100,
 
-        // callback_url: `${process.env.FRONTEND_URL}/payment/success`,http://localhost:5000
+        // callback_url: `${process.env.FRONTEND_URL}/payment/success`,http://localUser not found:5000
         callback_url: `https://flexpay26.vercel.app/payment/success`,
 
         metadata: {
