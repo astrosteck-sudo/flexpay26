@@ -53,7 +53,7 @@ app.use("/api/packages", require("./routes/packageRoutes"));
 app.use("/api/payment", require("./routes/paymentRoutes"));
 
 app.use(
-  "/api/payment/webhook",
+  "/api/payment",
   express.raw({
     type: "application/json",
   }),
