@@ -52,12 +52,12 @@ app.use("/api/packages", require("./routes/packageRoutes"));
 
 app.use("/api/payment", require("./routes/paymentRoutes"));
 
-app.use(
-  "/api/payment",
-  express.raw({
-    type: "application/json",
-  }),
-);
+// app.use(
+//   "/api/payment",
+//   express.raw({
+//     type: "application/json",
+//   }),
+// );
 
 // ======================= SERVER START =======================
 // Use PORT from environment variables or default to 5000
