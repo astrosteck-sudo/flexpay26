@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 //import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 import api from "../axios";
+import { LoginHeader } from "../Logins/LoginHeader";
+import { SiteFooter } from "../SiteFooter/SiteFooter";
 
 export function PaymentSuccess() {
   const [searchParams] = useSearchParams();
@@ -20,6 +22,7 @@ export function PaymentSuccess() {
   const fetchOrder = async () => {
     try {
       const res = await api.get(`/orders/reference/${reference}`);
+      console.log(res)
 
       setOrder(res.data.order);
     } catch (err) {
