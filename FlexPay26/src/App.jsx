@@ -7,6 +7,7 @@ import { SignUp } from "./Logins/SignUp";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import { UserDashBoard } from "./UserDashBoard/UserDashBoard";
 import { PaymentSuccess } from "./PaymentSuccess/PaymentSuccess";
+//import { TestSucess } from "./PaymentSuccess/testSuccess";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           }
         />
         <Route path="/payment/success" element={<PaymentSuccess/>} />
+        {/* <Route path="/testSucess" element={<TestSucess/>}/> */}
       </Routes>
     </>
   );

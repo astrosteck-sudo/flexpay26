@@ -1,77 +1,142 @@
-.import { useEffect, useState } from "react";
-import axios from "axios";
-import { useSearchParams } from "react-router-dom";
-
-function PaymentSuccess() {
-  const [searchParams] = useSearchParams();
-  const reference = searchParams.get("reference");
-
-  const [order, setOrder] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  const API_URL = import.meta.env.VITE_API_URL;
-
-  useEffect(() => {
-    fetchOrder();
-  }, []);
-
-  const fetchOrder = async () => {
-    try {
-      const res = await axios.get(
-        `${API_URL}/api/orders/reference/${reference}`
-      );
-
-      setOrder(res.data.order);
-
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return <h2>Verifying payment...</h2>;
-  }
-
-  if (!order) {
-    return <h2>Order not found</h2>;
-  }
-
-  return (
-    <div style={{ padding: "20px" }}>
-      <h1>Payment Successful 🎉</h1>
-
-      <div>
-        <p>
-          <strong>Player ID:</strong>{" "}
-          {order.player_id}
-        </p>
-
-        <p>
-          <strong>Diamonds:</strong>{" "}
-          {order.diamond_amount}
-        </p>
-
-        <p>
-          <strong>Amount Paid:</strong>{" "}
-          GHS {order.amount_paid}
-        </p>
-
-        <p>
-          <strong>Status:</strong>{" "}
-          {order.status}
-        </p>
-      </div>
-
-      <p>
-        Your diamonds will be delivered shortly.
-      </p>
-    </div>
-  );
+.payment-success-page-main-container {
+  width: 100vw;
+  height: 150vh;
+  background: linear-gradient(to bottom, #1f1001, #1f1001);
 }
 
-export default PaymentSuccess;{
-    color: white;
-    border: solid red;
+.payment-success-page-main-title {
+  padding-top: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.payment-success-page-svg {
+  width: 220px;
+}
+.payment-success-page-title {
+  color: #cc5500;
+  font-family: Sora bold;
+  font-style: italic;
+  font-size: 3rem;
+  color: rgb(255 107 0 / var(--tw-text-opacity, 1));
+  text-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
+}
+
+.payment-success-page-svg {
+  background: radial-gradient(
+    circle at center,
+    rgba(204, 85, 0, 0.4) 0%,
+    rgba(47, 110, 161, 0.16) 60%,
+    transparent 65%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px;
+}
+
+.payment-success-page-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 254, 254, 0.616);
+  font-family: Sora;
+  font-size: clamp(13px, 2vw, 20px);
+}
+
+.payment-success-page-transaction-summary-container {
+  border-radius: 13px;
+  margin: auto;
+  width: 40%;
+  margin-top: 50px;
+  padding: 20px 20px 20px 20px;
+  background: linear-gradient(to right, #361c01, #063f6576);
+
+}
+
+.payment-success-page-transaction-summary-header {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1.5px rgb(105, 103, 103) solid;
+  padding-bottom: 30px;
+  font-family: Sora;
+}
+.payment-success-page-transaction-summary-header p:nth-child(1) {
+  color: rgba(234, 232, 232, 0.55);
+}
+.payment-success-page-transaction-summary-header p:nth-child(2) {
+  --tw-text-opacity: 1;
+  color: rgb(0 224 255 / var(--tw-text-opacity, 1));
+  text-shadow: 0 0 8px rgba(0, 225, 255, 0.589);
+  font-size: clamp(15px, 2vw, 20px);
+  font-family: Sora bold;
+}
+
+.payment-success-page-transaction-summary-details-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.payment-success-page-transaction-summary-details-container h2{
+    font-family: Sora;
+    font-size: clamp(14px, 2vw, 18px);
+    color: rgba(234, 232, 232, 0.55);
+    margin-bottom: 5px;
+    
+}
+.payment-success-page-transaction-summary-details-container p:nth-child(2){
+    font-family: Sora bold;
+    color: rgba(234, 232, 232, 0.911);
+    font-size: 20px;
+}
+
+.payment-success-page-buttons{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.payment-success-page-buttons div{
+    width: 50%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(20px, 2vw, 25px);
+    text-align: center;
+    font-family: Sora bold;
+    border-radius: 10px;
+    font-style: italic;
+}
+.payment-success-page-buttons a{
+    text-decoration: none;
+    color: inherit;
+}
+.payment-success-page-buttons div:nth-child(1){
+    background-color: rgb(255 107 0 / var(--tw-text-opacity, 1));
+    color: rgba(0, 0, 0, 0.747);
+}
+.payment-success-page-buttons div:nth-child(2){
+    --tw-text-opacity: 1;
+  color: rgb(0 224 255 / var(--tw-text-opacity, 1));
+  text-shadow: 0 0 8px rgba(0, 225, 255, 0.589);
+  font-family: Sora bold;
+  border: 3px solid rgba(0, 225, 255, 0.589);
+}
+
+@media only screen and (max-width: 992px) {
+  .payment-success-page-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .payment-success-page-transaction-summary-container{
+    width: 100%;
+  }
+  .payment-success-page-main-container{
+    height: 100vh;
+  }
 }
