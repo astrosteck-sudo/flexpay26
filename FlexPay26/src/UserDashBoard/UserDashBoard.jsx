@@ -8,12 +8,15 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../axios.js";
 import { UserRecentOrders } from "./UserRecentOrders.jsx";
+import { use } from "react";
 
 //import { logout } from '../utils/auth.js'
 
 export function UserDashBoard() {
   const [logout, setLogOut] = useState(false);
-  const [dashboardInfo, setDashboardInfo] = useState({ stats: {}, orders: [] });
+  const [dashboardInfo, setDashboardInfo] = useState({});
+  const [dashBoardLimit, setDashBoardLimit] = useState(4);//THIS HANDLES HOW MANY RECENT ACTIVITIES OF THE USER CAN BE SHOWN
+  const [isViewAll, setIisViewAll] = useState(false)
   const navigate = useNavigate();
   //const token = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user"));
@@ -65,6 +68,16 @@ export function UserDashBoard() {
     fetchDashboard();
   }, []);
 
+  function handleViewAllButton(){
+    if(isViewAll){
+      setIisViewAll(false)
+      setDashBoardLimit(4)
+    }else{
+      setIisViewAll(true)
+      setDashBoardLimit(dashboardInfo.orders.length)
+    }
+  }
+
   return (
     <>
       <div className="user-dashboard-header">
@@ -98,16 +111,14 @@ export function UserDashBoard() {
           </div>
         </div>
 
-        {dashboardInfo.stats?.total_diamonds}
-
         <div className="user-dashboard-user-expenditure">
           <div className="user-dashboard-user-total-cash">
             <p>TOTAL CASH SPENT</p>
-            <p>¢{dashboardInfo.stats?.total_spent}</p>
+            <p>¢{dashboardInfo.stats?.total_spent || 0.00}</p>
           </div>
           <div className="user-dashboard-user-total-diamonds">
             <p>Total Diamonds Used</p>
-            <p>{dashboardInfo.stats?.total_diamonds}</p>
+            <p>{dashboardInfo.stats?.total_diamonds || 0}</p>
           </div>
         </div>
       </div>
@@ -115,11 +126,11 @@ export function UserDashBoard() {
       <div className="user-dashboard-recent-activity-container">
         <div className="user-dashboard-recent-activity-header">
           <p>Recent Activity</p>
-          <p>VIEW ALL</p>
+          <p onClick={handleViewAllButton}>{isViewAll? 'View Less':'View All'}</p>
         </div>
 
         <div className="user-dashboard-recent-activity-wrapper">
-          {dashboardInfo.map((order) => (
+          {dashboardInfo.orders?.slice(0, dashBoardLimit).map((order) => (
             <UserRecentOrders order={order} key={order.id}/>
           ))}
         </div>

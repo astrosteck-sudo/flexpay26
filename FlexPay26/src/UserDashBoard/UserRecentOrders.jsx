@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 export function UserRecentOrders({ order }) {
   return (
     <>
@@ -26,16 +28,17 @@ export function UserRecentOrders({ order }) {
             </svg>
           </div>
           <div className="user-dashboard-recent-activity-diamsonds">
-            <p>500 Diamonds Top-up</p>
-            <p>Nov 24, 2023 • 14:32</p>
+            <p>{order.diamond_amount} Diamonds Top-up</p>
+            <p>{dayjs(order.created_at).format("MMMM D, YYYY HH:mm")}</p>
+            
           </div>
         </div>
         <div className="user-dashboard-recent-activity-money-container">
           <div className="user-dashboard-recent-activity-money">
-            <p>$4.99</p>
+            <p>¢{order.amount_paid}</p>
             <p>Mobile Money</p>
           </div>
-          <p className="user-dashboard-recent-activity-completed">Completed</p>
+          <p className={`user-dashboard-recent-activity-completed ${order.status === 'paid' ? 'processing':''}`}>{order.status==='paid' ? 'Processing' : 'Completed'}</p>
         </div>
       </div>
     </>

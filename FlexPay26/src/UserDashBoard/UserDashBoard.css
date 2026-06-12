@@ -212,6 +212,11 @@ svg polygon {
   font-family: Sora bold;
   font-size: clamp(10px, 2vw, 13px);
 }
+.user-dashboard-recent-activity-completed.processing{
+  background-color: rgba(128, 0, 0, 0.436);
+  color: rgb(255, 0, 0);
+}
+
 
 .user-dashboard-recent-activity-wrapper {
   display: flex;
