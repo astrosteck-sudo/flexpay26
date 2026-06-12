@@ -310,6 +310,9 @@ input:focus {
   align-items: center;
   margin-top: 50px;
 }
+.order-summary-confirm-button:active{
+  transform: scale(.97);
+}
 .order-summary-confirm-button svg {
   width: 25px;
 }

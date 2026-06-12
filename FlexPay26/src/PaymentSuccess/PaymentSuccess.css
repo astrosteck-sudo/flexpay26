@@ -116,6 +116,9 @@ success .payment-success-page-transaction-status {
   border-radius: 10px;
   font-style: italic;
 }
+.payment-success-page-buttons div:active{
+  transform: scale(.97);
+}
 .payment-success-page-buttons a {
   text-decoration: none;
   color: inherit;
