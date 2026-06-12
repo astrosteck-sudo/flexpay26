@@ -54,7 +54,6 @@
   margin-top: 50px;
   padding: 20px 20px 20px 20px;
   background: linear-gradient(to right, #361c01, #063f6576);
-
 }
 
 .payment-success-page-transaction-summary-header {
@@ -68,60 +67,65 @@
 .payment-success-page-transaction-summary-header p:nth-child(1) {
   color: rgba(234, 232, 232, 0.55);
 }
-.payment-success-page-transaction-summary-header p:nth-child(2) {
+success .payment-success-page-transaction-status {
   --tw-text-opacity: 1;
-  color: rgb(0 224 255 / var(--tw-text-opacity, 1));
-  text-shadow: 0 0 8px rgba(0, 225, 255, 0.589);
   font-size: clamp(15px, 2vw, 20px);
   font-family: Sora bold;
 }
-
-.payment-success-page-transaction-summary-details-container{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    margin-bottom: 20px;
+.payment-success-page-transaction-status.success {
+  color: rgb(0 224 255 / var(--tw-text-opacity, 1));
+  text-shadow: 0 0 8px rgba(0, 225, 255, 0.589);
 }
-.payment-success-page-transaction-summary-details-container h2{
-    font-family: Sora;
-    font-size: clamp(14px, 2vw, 18px);
-    color: rgba(234, 232, 232, 0.55);
-    margin-bottom: 5px;
-    
-}
-.payment-success-page-transaction-summary-details-container p:nth-child(2){
-    font-family: Sora bold;
-    color: rgba(234, 232, 232, 0.911);
-    font-size: 20px;
+.payment-success-page-transaction-status.failed {
+  color: rgb(227, 25, 7, 0.589 / var(--tw-text-opacity, 1));
+  text-shadow: 0 0 8px rgba(227, 25, 7, 0.589);
 }
 
-.payment-success-page-buttons{
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+.payment-success-page-transaction-summary-details-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.payment-success-page-buttons div{
-    width: 50%;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: clamp(20px, 2vw, 25px);
-    text-align: center;
-    font-family: Sora bold;
-    border-radius: 10px;
-    font-style: italic;
+.payment-success-page-transaction-summary-details-container h2 {
+  font-family: Sora;
+  font-size: clamp(14px, 2vw, 18px);
+  color: rgba(234, 232, 232, 0.55);
+  margin-bottom: 5px;
 }
-.payment-success-page-buttons a{
-    text-decoration: none;
-    color: inherit;
+.payment-success-page-transaction-summary-details-container p:nth-child(2) {
+  font-family: Sora bold;
+  color: rgba(234, 232, 232, 0.911);
+  font-size: 20px;
 }
-.payment-success-page-buttons div:nth-child(1){
-    background-color: rgb(255 107 0 / var(--tw-text-opacity, 1));
-    color: rgba(0, 0, 0, 0.747);
+
+.payment-success-page-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
-.payment-success-page-buttons div:nth-child(2){
-    --tw-text-opacity: 1;
+.payment-success-page-buttons div {
+  width: 50%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(20px, 2vw, 25px);
+  text-align: center;
+  font-family: Sora bold;
+  border-radius: 10px;
+  font-style: italic;
+}
+.payment-success-page-buttons a {
+  text-decoration: none;
+  color: inherit;
+}
+.payment-success-page-buttons div:nth-child(1) {
+  background-color: rgb(255 107 0 / var(--tw-text-opacity, 1));
+  color: rgba(0, 0, 0, 0.747);
+}
+.payment-success-page-buttons div:nth-child(2) {
+  --tw-text-opacity: 1;
   color: rgb(0 224 255 / var(--tw-text-opacity, 1));
   text-shadow: 0 0 8px rgba(0, 225, 255, 0.589);
   font-family: Sora bold;
@@ -133,10 +137,10 @@
     font-size: 1.5rem;
     text-align: center;
   }
-  .payment-success-page-transaction-summary-container{
+  .payment-success-page-transaction-summary-container {
     width: 100%;
   }
-  .payment-success-page-main-container{
+  .payment-success-page-main-container {
     height: 100vh;
   }
 }

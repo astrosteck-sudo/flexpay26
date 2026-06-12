@@ -22,7 +22,7 @@ export function PaymentSuccess() {
   const fetchOrder = async () => {
     try {
       const res = await api.get(`/orders/reference/${reference}`);
-      console.log(res)
+      console.log(res);
 
       setOrder(res.data.order);
     } catch (err) {
@@ -82,13 +82,17 @@ export function PaymentSuccess() {
         <div className="payment-success-page-transaction-summary-container">
           <div className="payment-success-page-transaction-summary-header">
             <p>Transaction Status</p>
-            <p>{order.status} </p>
+            <p
+              className={`payment-success-page-transaction-status ${order.status === "paid" ? "success" : "failed"}`}
+            >
+              {order.status === "paid" ? "SUCCESSFUL" : "FAILED"}
+            </p>
           </div>
 
           <div className="payment-success-page-transaction-summary-details-container">
             <div>
               <h2>Order ID</h2>
-              <p>#DC-88291044</p>
+              <p>#DC-8829{order.order_id}</p>
             </div>
 
             <div>
