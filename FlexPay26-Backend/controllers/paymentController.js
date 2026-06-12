@@ -12,6 +12,11 @@ const initializePayment = async (req, res) => {
         message: "Missing required fields",
       });
     }
+    if (player_id.length > 10 || player_id.length < 9) {
+      return res.status(400).json({
+        message: "Input valid player ID",
+      });
+    }
 
     const userId = req.user.user_id;
     console.log("userId", userId);
@@ -207,7 +212,6 @@ const paystackWebhook = async (req, res) => {
     return res.sendStatus(500);
   }
 };
-
 
 module.exports = {
   initializePayment,

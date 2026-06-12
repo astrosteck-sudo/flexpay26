@@ -90,7 +90,7 @@ export function HomePage() {
       // setLoading(true);
 
       const token = localStorage.getItem("token");
-      console.log(diamondPackage)
+      console.log(diamondPackage);
       const response = await api.post(
         `/payment/initialize`,
         {
@@ -166,7 +166,9 @@ export function HomePage() {
               </h2>
             </div>
             <input
-              type="number"
+              type="text"
+              maxlength="10"
+              pattern="\d*"
               name="userPlayerId"
               placeholder="Make sure to enter an accurate player Id"
               className="player-input"
