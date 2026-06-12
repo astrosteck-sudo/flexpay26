@@ -22,7 +22,6 @@ export function PaymentSuccess() {
   const fetchOrder = async () => {
     try {
       const res = await api.get(`/orders/reference/${reference}`);
-      console.log(res);
 
       setOrder(res.data.order);
     } catch (err) {

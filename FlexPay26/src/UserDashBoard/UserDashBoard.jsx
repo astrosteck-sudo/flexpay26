@@ -39,7 +39,6 @@ export function UserDashBoard() {
   }, [setLogOut]);
 
   function handleLogOut() {
-    console.log("cleio");
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     navigate("/login");

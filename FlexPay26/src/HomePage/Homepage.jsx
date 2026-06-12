@@ -27,9 +27,16 @@ export function HomePage() {
   const [thirdDiamondPackage, setThirdDiamondPackage] = useState(false);
   const [fourthDiamondPackage, setFourthDiamondPackage] = useState(false);
 
+  ///THESE TWO FUNCTIONS MAKE SURE ALL LEADING AND TRAILING SPACES AND SPACES IN THE MIDDLE OF THE PLAYER ID INPUT TAG ARE REOMEVED
   const handleChange = (e) => {
-    setUserPlayerId(e.target.value);
+    // This removes spaces, letters, and symbols instantly
+    const digitsOnly = e.target.value.replace(/[^\d]/g, "");
+
+    setUserPlayerId(digitsOnly);
   };
+  function handleNameBlur(event) {
+    setUserPlayerId(event.target.value);
+  }
 
   // function handleDiamondPackage(parameter, booleanParam) {
   //   console.log(parameter)
@@ -90,7 +97,6 @@ export function HomePage() {
       // setLoading(true);
 
       const token = localStorage.getItem("token");
-      console.log(diamondPackage);
       const response = await api.post(
         `/payment/initialize`,
         {
@@ -166,15 +172,15 @@ export function HomePage() {
               </h2>
             </div>
             <input
-              type="text"
-              maxlength="10"
-              pattern="\d*"
+              type="text" // Changed to text for strict regex enforcement
+              inputmode="numeric" // Keeps the numeric keyboard on mobile devices
+              pattern="[0-9]*" // Helps mobile browsers show the correct keypad
               name="userPlayerId"
               placeholder="Make sure to enter an accurate player Id"
               className="player-input"
               value={userPlayerId}
               onChange={handleChange}
-              maxLength={10}
+              onBlur={handleNameBlur}
             />
           </div>
           <div className="select-package-container">

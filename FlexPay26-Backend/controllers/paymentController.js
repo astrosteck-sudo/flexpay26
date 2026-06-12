@@ -3,10 +3,8 @@ const db = require("../config/db");
 const crypto = require("crypto");
 
 const initializePayment = async (req, res) => {
-  console.log("starting");
   try {
     const { player_id, package_id } = req.body;
-
     if (!player_id || !package_id) {
       return res.status(400).json({
         message: "Missing required fields",
@@ -19,7 +17,6 @@ const initializePayment = async (req, res) => {
     }
 
     const userId = req.user.user_id;
-    console.log("userId", userId);
 
     // Get user email
 
