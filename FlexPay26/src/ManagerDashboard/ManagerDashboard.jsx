@@ -70,7 +70,7 @@ export function ManagerDashboard() {
         <div className="manager-dashboard-status-container">
           <div>
             <h2>PROCESSED ORDERS</h2>
-            <p>1284</p>
+            <p>{completedOrders?.length}</p>
           </div>
           <div>
             <h2>PENDING ORDERS</h2>
@@ -113,7 +113,6 @@ export function ManagerDashboard() {
             return (
               <CompletedUsers
                 order={order}
-                getAllUsersOrders={getAllUsersOrders}
               />
             );
           })}

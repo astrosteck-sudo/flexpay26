@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 export function CompletedUsers({ order }) {
     
   return (
@@ -67,7 +69,8 @@ export function CompletedUsers({ order }) {
                 <circle cx="12" cy="12" r="9" />
                 <polyline points="12 7 12 12 15 14" />
               </svg>
-              {/* {timeAgoUTC(order.created_at)} */}
+              <p>{dayjs(order.completed_at).format("MMMM D, YYYY, h:mm:ss")}</p>
+              
             </p>
           </p>
         </div>
