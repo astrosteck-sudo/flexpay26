@@ -182,11 +182,11 @@ input:focus {
   width: 23%;
 }
 
-.package-option-diamonds.firstDiamondPackage{
+.package-option-diamonds.selectedPackage{
   border: #ff6a00 solid 1px;
   box-shadow: 0 0 8px rgb(255, 106, 0);
 }
-.package-option-diamonds.secondDiamondPackage{
+/* .package-option-diamonds.secondDiamondPackage{
   border: #ff6a00 solid 1px;
   box-shadow: 0 0 8px rgb(255, 106, 0);
 }
@@ -197,7 +197,7 @@ input:focus {
 .package-option-diamonds.fourthDiamondPackage{
   border: #ff6a00 solid 1px;
   box-shadow: 0 0 8px rgb(255, 106, 0);
-}
+} */
 /* .package-options-diamonds-container div:nth-child(1) {
   border: solid red;
 }

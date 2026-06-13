@@ -7,7 +7,6 @@ const getPackages = async (req, res) => {
       `
       SELECT *
       FROM diamond_packages
-      WHERE active = TRUE
       ORDER BY diamond_amount ASC
       `
     );
