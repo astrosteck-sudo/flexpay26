@@ -46,7 +46,7 @@ export function ManagerDashboard() {
 
         <div className="manager-dashboard-orders-container">
           {allUsersOrder?.map((order) => {
-            return <AllUsersOrders order={order} />;
+            return <AllUsersOrders order={order} getAllUsersOrders={getAllUsersOrders} />;
           })}
         </div>
       </div>

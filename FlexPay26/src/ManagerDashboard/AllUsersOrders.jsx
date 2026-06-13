@@ -1,13 +1,43 @@
+import api from "../axios";
 import { timeAgoUTC } from "../utils/getMinutesAgo";
 
-export function AllUsersOrders({ order }) {
+export function AllUsersOrders({ order, getAllUsersOrders }) {
   // console.log(timeAgo('2026-06-13T15:08:36.000Z'))
   // //console.log(timeAgo('2026-06-09T14:59:36.000Z'))
   // Current system time
   console.log(new Date());
 
-  // Example: formatted
-  console.log(new Date().toLocaleString());
+  // // Example: formatted
+  // console.log(new Date().toLocaleString());
+
+  const completeOrder = async (orderId) => {
+  try {
+    const token =
+      localStorage.getItem("token");
+
+    const response = await api.patch(
+      `/orders/admin/orders/${orderId}/completed`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    alert(response.data.message);
+
+    getAllUsersOrders(); // refresh table
+
+  } catch (error) {
+    console.error(error);
+
+    alert(
+      error.response?.data?.message ||
+      "Failed to complete order"
+    );
+  }
+};
 
   return (
     <div className="manager-dashboard-order">
@@ -108,7 +138,7 @@ export function AllUsersOrders({ order }) {
               <path d="M 41 50 L 47 56 L 59 42" />
             </g>
           </svg>
-          <p id="manager-dashboard-confirm-button-text">Confirm & Credit</p>
+          <p id="manager-dashboard-confirm-button-text" onClick={() => completeOrder(order.order_id)}>Confirm & Credit</p>
         </button>
       </div>
     </div>

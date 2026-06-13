@@ -9,5 +9,5 @@ export function timeAgoUTC(dateString) {
   return dayjs.utc(dateString).local().fromNow();
 }
 
-console.log(timeAgoUTC("2026-06-11T14:59:36.000Z"));
+//console.log(timeAgoUTC("2026-06-11T14:59:36.000Z"));
 // → "2 days ago" (correct relative to your actual local time)
