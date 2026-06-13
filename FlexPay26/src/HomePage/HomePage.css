@@ -309,6 +309,8 @@ input:focus {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  transform: scale(1); /* Optional: explicit base scale */
+  transition: transform 0.2s ease-in-out;
 }
 .order-summary-confirm-button:active{
   transform: scale(.97);

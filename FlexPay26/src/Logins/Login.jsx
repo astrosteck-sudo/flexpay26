@@ -2,7 +2,7 @@ import { SiteFooter } from "../SiteFooter/SiteFooter";
 import "./Login.css";
 import { LoginHeader } from "./LoginHeader";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { use, useState } from "react";
 import api from "../axios";
 
 export function Login() {
@@ -26,24 +26,28 @@ export function Login() {
 
     //setLoading(true);
     setError("");
-    setLoggingIn(true)
+    setLoggingIn(true);
 
     try {
-      
       const response = await api.post("/auth/login", formData);
 
       localStorage.setItem("token", response.data.token);
 
       localStorage.setItem("user", JSON.stringify(response.data.user));
+      const user = JSON.parse(localStorage.getItem("user"));
 
-      navigate("/userdashboard");
-      setLoggingIn(false)
+      if(user.role === 'admin'){
+        navigate('/managerDashboard')
+      }else{
+        navigate('/userdashboard')
+      }
+      setLoggingIn(false);
     } catch (err) {
-      setLoggingIn(false)
+      setLoggingIn(false);
       setError(err.response?.data?.message || "Login failed");
       setTimeout(() => {
-        setError('')
-      }, 2000)
+        setError("");
+      }, 2000);
     } finally {
       //setLoading(false);
     }
@@ -84,7 +88,9 @@ export function Login() {
             onChange={handleChange}
           />
 
-          <button className="login-submit-button">{loggingIn ? 'Getting you in' : 'Login'}</button>
+          <button className="login-submit-button">
+            {loggingIn ? "Getting you in" : "Login"}
+          </button>
           <p className="signUp-error-message">{error}</p>
         </form>
 

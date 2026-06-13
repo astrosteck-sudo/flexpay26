@@ -115,6 +115,8 @@ success .payment-success-page-transaction-status {
   font-family: Sora bold;
   border-radius: 10px;
   font-style: italic;
+  transform: scale(1); /* Optional: explicit base scale */
+  transition: transform 0.2s ease-in-out;
 }
 .payment-success-page-buttons div:active{
   transform: scale(.97);

@@ -90,8 +90,43 @@ const getDashboard = async (req, res) => {
   }
 };
 
+const getOrders = async (req, res) => {
+  try {
+
+    const [orders] = await db.query(
+      `
+      SELECT
+        order_id,
+        player_id,
+        diamond_amount,
+        amount_paid,
+        status,
+        created_at
+      FROM orders
+      WHERE status IN
+      ('paid','processing')
+      ORDER BY created_at ASC
+      `
+    );
+
+    res.json({
+      orders
+    });
+
+  } catch (error) {
+
+    console.error(error);
+
+    res.status(500).json({
+      message: "Server Error"
+    });
+
+  }
+};
+
 
 module.exports = {
   getOrderByReference,
   getDashboard,
+  getOrders
 };

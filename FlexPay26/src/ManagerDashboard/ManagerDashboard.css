@@ -1,3 +1,183 @@
-/* p{
-    color: white;
-} */
+.manager-dashboard {
+  background: linear-gradient(to bottom, #1f100137, #1f1001);
+  height: 100vh;
+}
+
+.manager-dashboard-status-container {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.manager-dashboard-status-container div {
+  background-color: rgb(16, 16, 16);
+  padding-left: 20px;
+  padding-right: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 15px;
+}
+
+.manager-dashboard-status-container div:nth-child(1) {
+  border-left: 6px solid #ff6b00;
+}
+.manager-dashboard-status-container div:nth-child(2) {
+  border-left: 6px solid rgb(0 218 248);
+}
+
+.manager-dashboard-status-container h2 {
+  color: rgb(185, 182, 182);
+  font-family: Bebas Neue;
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+.manager-dashboard-status-container p {
+  --tw-text-opacity: 1;
+  color: rgb(0 218 248 / var(--tw-text-opacity, 1));
+  font-family: Sora;
+}
+
+.manager-dashboard-options-conatainer {
+  color: white;
+  display: flex;
+  gap: 20px;
+  padding: 30px;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+.manager-dashboard-options-conatainer p {
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(16, 16, 16);
+  border: solid rgb(37, 37, 37) 0.2px;
+  font-family: Sora;
+  color: rgb(212, 161, 142);
+}
+
+.manager-dashboard-orders-container {
+  color: white;
+  padding: 30px;
+}
+
+.manager-dashboard-diamond-svg {
+  border: #cc5500 solid 1px;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  fill: none;
+  stroke: #cc5500;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  padding: 5px;
+  background-color: rgb(16, 16, 16);
+}
+
+.manager-dashboard-order {
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: rgb(20, 20, 20);
+}
+.manager-dashboard-order-details-container {
+  display: flex;
+  gap: 20px;
+}
+.manager-dashboard-order-details h2 {
+  font-family: Sora;
+  font-size: clamp(15px, 2vw, 18px);
+  color: rgb(216, 199, 193);
+}
+
+.manager-dashboard-order-details-svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: #cc5500;
+  stroke-width: 1.6px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.manager-dashboard-order-details p {
+  font-family: Sora;
+  margin-top: 3px;
+  font-size: clamp(13px, 2vw, 14px);
+  color: rgba(199, 157, 141, 0.705);
+  display: flex;
+  gap: 4px;
+}
+
+.manager-dashboard-confirm-container {
+  display: flex;
+  gap: 20px;
+}
+.manager-dashboard-confirm-container h1 {
+  color: rgba(199, 157, 141, 0.705);
+  font-size: clamp(10px, 2vw, 10px);
+  font-family: Sora;
+}
+.manager-dashboard-confirm-container p {
+  font-family: Sora bold;
+  font-size: clamp(16px, 2vw, 20px);
+  color: wheat;
+}
+
+.manager-dashboard-confirm-container button {
+  /* padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 10px; */
+
+  border-radius: 10px;
+  background-color: rgb(255, 102, 0);
+  color: black;
+  border: none;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.4));
+  box-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
+  font-family: Sora light;
+  min-height: 50px;
+  transform: scale(1); /* Optional: explicit base scale */
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+#manager-dashboard-confirm-button-text{
+    color: black;
+    font-family: Sora light;
+    font-size: clamp(13px, 2vw, 15px);
+}
+
+.manager-dashboard-confirm-container button:active {
+  transform: scale(0.97);
+}
+@media only screen and (max-width: 992px) {
+  .manager-dashboard-status-container div {
+    padding-right: 30px;
+    width: 50%;
+  }
+  .manager-dashboard-status-container {
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+    gap: 10px;
+  }
+  .manager-dashboard-order {
+    width: 100%;
+    flex-direction: column;
+    gap: calc(20px);
+  }
+}
