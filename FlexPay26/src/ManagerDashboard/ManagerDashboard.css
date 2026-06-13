@@ -60,13 +60,30 @@
   font-family: Sora;
   color: rgb(212, 161, 142);
 }
+.manager-dashboard-options.pending {
+  background-color: #ff6b00;
+  color: #160900;
+  font-weight: bold;
+}
+.manager-dashboard-options.completed {
+  background-color: #ff6b00;
+  color: #160900;
+  font-weight: bold;
+}
 
-.manager-dashboard-orders-container {
+.manager-dashboard-orders-container,
+.manager-dashboard-completed-orders-container {
   color: white;
   padding: 30px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.manager-dashboard-orders-container.hide{
+  display: none;
+}
+.manager-dashboard-completed-orders-container.hide{
+  display: none;
 }
 
 .manager-dashboard-diamond-svg {
@@ -152,21 +169,34 @@
   box-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
   font-family: Sora light;
   min-height: 50px;
-  transform: scale(1); 
+  transform: scale(1);
   transition: transform 0.2s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 200px;
 }
-#manager-dashboard-confirm-button-text{
-    color: black;
-    font-family: Sora light;
-    font-size: clamp(13px, 2vw, 15px);
+#manager-dashboard-confirm-button-text {
+  color: black;
+  font-family: Sora light;
+  font-size: clamp(13px, 2vw, 15px);
+}
+
+#manager-dashboard-completed-text {
+  color: rgb(0, 255, 0);
+  font-size: 15px;
+}
+#manager-dashboard-completed-button {
+  background-color: rgba(0, 128, 0, 0.196);
+  filter: none;
+  box-shadow: none;
 }
 
 .manager-dashboard-confirm-container button:active {
   transform: scale(0.97);
+}
+#manager-dashboard-completed-button:active {
+  transform: none;
 }
 @media only screen and (max-width: 992px) {
   .manager-dashboard-status-container div {

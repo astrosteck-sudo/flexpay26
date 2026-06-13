@@ -121,7 +121,6 @@ const getOrders = async (req, res) => {
 };
 
 const completeOrder = async (req, res) => {
-  console.log("hitting");
   try {
     const { orderId } = req.params;
 
@@ -183,9 +182,50 @@ const completeOrder = async (req, res) => {
   }
 };
 
+const getCompletedOrders = async (req, res) => {
+  console.log("hitting");
+  try {
+
+    const [orders] = await db.query(
+      `
+      SELECT
+        order_id,
+        user_id,
+        player_id,
+        diamond_amount,
+        amount_paid,
+        status,
+        created_at,
+        completed_at
+      FROM orders
+      WHERE status = 'completed'
+      ORDER BY completed_at DESC
+      `
+    );
+
+    return res.status(200).json({
+      success: true,
+      count: orders.length,
+      orders
+    });
+
+  } catch (error) {
+
+    console.error(error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Server error"
+    });
+
+  }
+};
+
+
 module.exports = {
   getOrderByReference,
   getDashboard,
   getOrders,
   completeOrder,
+  getCompletedOrders
 };

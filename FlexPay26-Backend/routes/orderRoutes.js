@@ -9,6 +9,7 @@ const {
   getDashboard,
   getOrders,
   completeOrder,
+  getCompletedOrders
 } = require("../controllers/orderController");
 
 router.get("/dashboard", authenticate, getDashboard);
@@ -27,6 +28,8 @@ router.patch(
   adminAuth,
   completeOrder,
 );
+
+router.get("/admin/orders/completed", authenticate, adminAuth, getCompletedOrders);
 router.get("/reference/:reference", authenticate, getOrderByReference);
 
 module.exports = router;

@@ -111,7 +111,7 @@ export function PageHeader() {
 
         {token && (
           <div className="mobile-user-logged-in-pill">
-            <a href="/userdashboard" className="user-logged-in-link">
+            <a href={`/${navigatePage}`} className="user-logged-in-link">
               <div className="page-header-user-initials">
                 {getInitials(user.username)}
               </div>

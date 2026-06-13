@@ -1,44 +1,5 @@
-import api from "../axios";
-import { timeAgoUTC } from "../utils/getMinutesAgo";
-
-export function AllUsersOrders({ order, getAllUsersOrders }) {
-  // console.log(timeAgo('2026-06-13T15:08:36.000Z'))
-  // //console.log(timeAgo('2026-06-09T14:59:36.000Z'))
-  // Current system time
-  //console.log(new Date());
-
-  // // Example: formatted
-  // console.log(new Date().toLocaleString());
-
-  const completeOrder = async (orderId) => {
-  try {
-    const token =
-      localStorage.getItem("token");
-
-    const response = await api.patch(
-      `/orders/admin/orders/${orderId}/completed`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-
-    alert(response.data.message);
-
-    getAllUsersOrders(); // refresh table
-
-  } catch (error) {
-    console.error(error);
-
-    alert(
-      error.response?.data?.message ||
-      "Failed to complete order"
-    );
-  }
-};
-
+export function CompletedUsers({ order }) {
+    
   return (
     <div className="manager-dashboard-order">
       <div className="manager-dashboard-order-details-container">
@@ -106,7 +67,7 @@ export function AllUsersOrders({ order, getAllUsersOrders }) {
                 <circle cx="12" cy="12" r="9" />
                 <polyline points="12 7 12 12 15 14" />
               </svg>
-              {timeAgoUTC(order.created_at)}
+              {/* {timeAgoUTC(order.created_at)} */}
             </p>
           </p>
         </div>
@@ -117,18 +78,18 @@ export function AllUsersOrders({ order, getAllUsersOrders }) {
           <p>₵{order.amount_paid}</p>
         </div>
 
-        <button>
+        <button id="manager-dashboard-completed-button">
           <svg
             xmlns="http://w3.org"
             viewBox="0 0 100 100"
             width="15%"
             height="100%"
           >
-            <rect width="150" height="100" fill="rgb(255, 102, 0)" />
+            <rect width="150" height="100" fill="rgba(0, 128, 0, 0)" />
 
             <g
               fill="none"
-              stroke="#5c1e00"
+              stroke="rgb(0, 255, 0)"
               stroke-width="8"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -138,7 +99,11 @@ export function AllUsersOrders({ order, getAllUsersOrders }) {
               <path d="M 41 50 L 47 56 L 59 42" />
             </g>
           </svg>
-          <p id="manager-dashboard-confirm-button-text" onClick={() => completeOrder(order.order_id)}>Confirm & Credit</p>
+          <p
+            id="manager-dashboard-completed-text"
+          >
+            Completed
+          </p>
         </button>
       </div>
     </div>
