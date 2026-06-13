@@ -92,7 +92,6 @@ const getDashboard = async (req, res) => {
 
 const getOrders = async (req, res) => {
   try {
-
     const [orders] = await db.query(
       `
       SELECT
@@ -106,26 +105,23 @@ const getOrders = async (req, res) => {
       WHERE status IN
       ('paid','processing')
       ORDER BY created_at ASC
-      `
+      `,
     );
 
     res.json({
-      orders
+      orders,
     });
-
   } catch (error) {
-
     console.error(error);
 
     res.status(500).json({
-      message: "Server Error"
+      message: "Server Error",
     });
-
   }
 };
 
 const completeOrder = async (req, res) => {
-  console.log('hitting')
+  console.log("hitting");
   try {
     const { orderId } = req.params;
 
@@ -136,7 +132,7 @@ const completeOrder = async (req, res) => {
       FROM orders
       WHERE order_id = ?
       `,
-      [orderId]
+      [orderId],
     );
 
     if (orders.length === 0) {
@@ -161,14 +157,23 @@ const completeOrder = async (req, res) => {
       SET status = 'completed'
       WHERE order_id = ?
       `,
-      [orderId]
+      [orderId],
+    );
+
+    await db.query(
+      `
+      UPDATE orders
+      SET status = 'completed',
+      completed_at = NOW()
+      WHERE order_id = ?
+      `,
+      [orderId],
     );
 
     return res.status(200).json({
       success: true,
       message: "Order completed successfully",
     });
-
   } catch (error) {
     console.error(error);
 
@@ -178,10 +183,9 @@ const completeOrder = async (req, res) => {
   }
 };
 
-
 module.exports = {
   getOrderByReference,
   getDashboard,
   getOrders,
-  completeOrder
+  completeOrder,
 };

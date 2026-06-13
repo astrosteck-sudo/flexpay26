@@ -1,11 +1,12 @@
 import "./PageHeader.css";
 //import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { getInitials } from "../utils/initials";
 
 export function PageHeader() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [navigatePage, setNavigatePage] = useState("");
 
   const smoothScroll = (parameter) => {
     if (parameter === "order") {
@@ -21,6 +22,14 @@ export function PageHeader() {
 
   const token = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user"));
+
+  useEffect(() => {
+    if (user?.role === "admin") {
+      setNavigatePage("managerDashboard");
+    } else if (user) {
+      setNavigatePage("userdashboard");
+    }
+  }, [user]);
 
   return (
     <>
@@ -54,7 +63,7 @@ export function PageHeader() {
 
         {token && (
           <div className="user-logged-in-pill">
-            <a href="/userdashboard" className="user-logged-in-link">
+            <a href={`/${navigatePage}`} className="user-logged-in-link">
               <div className="page-header-user-initials">
                 {getInitials(user.username)}
               </div>
