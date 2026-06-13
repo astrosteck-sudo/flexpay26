@@ -2,12 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 const authenticate = require("../middleware/auth.middleware");
-const adminAuth = require("../middleware/adminAuth")
+const adminAuth = require("../middleware/adminAuth");
 
 const {
   getOrderByReference,
   getDashboard,
-  getOrders
+  getOrders,
+  completeOrder,
 } = require("../controllers/orderController");
 
 router.get("/dashboard", authenticate, getDashboard);
@@ -20,6 +21,12 @@ router.get("/dashboard", authenticate, getDashboard);
 
 router.get("/admin/orders", authenticate, adminAuth, getOrders);
 
+router.patch(
+  "/admin/orders/:orderId/completed",
+  authenticate,
+  adminAuth,
+  completeOrder,
+);
 router.get("/reference/:reference", authenticate, getOrderByReference);
 
 module.exports = router;

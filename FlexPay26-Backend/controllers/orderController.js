@@ -124,9 +124,64 @@ const getOrders = async (req, res) => {
   }
 };
 
+const completeOrder = async (req, res) => {
+  console.log('hitting')
+  try {
+    const { orderId } = req.params;
+
+    // Check if order exists
+    const [orders] = await db.query(
+      `
+      SELECT *
+      FROM orders
+      WHERE order_id = ?
+      `,
+      [orderId]
+    );
+
+    if (orders.length === 0) {
+      return res.status(404).json({
+        message: "Order not found",
+      });
+    }
+
+    const order = orders[0];
+
+    // Prevent completing twice
+    if (order.status === "completed") {
+      return res.status(400).json({
+        message: "Order already completed",
+      });
+    }
+
+    // Update status
+    await db.query(
+      `
+      UPDATE orders
+      SET status = 'completed'
+      WHERE order_id = ?
+      `,
+      [orderId]
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Order completed successfully",
+    });
+
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      message: "Server error",
+    });
+  }
+};
+
 
 module.exports = {
   getOrderByReference,
   getDashboard,
-  getOrders
+  getOrders,
+  completeOrder
 };

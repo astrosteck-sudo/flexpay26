@@ -1,6 +1,7 @@
 .manager-dashboard {
   background: linear-gradient(to bottom, #1f100137, #1f1001);
   height: 100vh;
+  overflow: scroll;
 }
 
 .manager-dashboard-status-container {
@@ -63,6 +64,9 @@
 .manager-dashboard-orders-container {
   color: white;
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .manager-dashboard-diamond-svg {
@@ -148,7 +152,7 @@
   box-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
   font-family: Sora light;
   min-height: 50px;
-  transform: scale(1); /* Optional: explicit base scale */
+  transform: scale(1); 
   transition: transform 0.2s ease-in-out;
   display: flex;
   justify-content: center;

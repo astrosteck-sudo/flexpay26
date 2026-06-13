@@ -1,4 +1,4 @@
-.right-arrow-svg{
+.right-arrow-svg {
   width: 24px;
   height: 24px;
   fill: none;
@@ -8,14 +8,15 @@
   stroke-linejoin: round;
 }
 
-.logins-header{
-    padding: 20px;
-    display: flex;
-    gap: 40px;
-    align-items: center;
+.logins-header {
+  padding: 20px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
 
-    width: 100%;
+  width: 100%;
   position: fixed;
   background-color: rgb(82, 24, 3);
   background: linear-gradient(to bottom, #000000, #1f1001);
+  z-index: 1;
 }
