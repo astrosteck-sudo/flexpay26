@@ -24,7 +24,7 @@ export function PackageDiamonds({
         <h2 className="package-option-diamonds-title">
           {item.diamond_amount} diamonds
         </h2>
-        <p className="package-option-diamonds-price">₵{item.price}.00</p>
+        <p className="package-option-diamonds-price">₵{item.price}</p>
       </div>
     </>
   );

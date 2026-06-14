@@ -11,33 +11,28 @@ export function AllUsersOrders({ order, getAllUsersOrders }) {
   // console.log(new Date().toLocaleString());
 
   const completeOrder = async (orderId) => {
-  try {
-    const token =
-      localStorage.getItem("token");
+    try {
+      const token = localStorage.getItem("token");
 
-    const response = await api.patch(
-      `/orders/admin/orders/${orderId}/completed`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const response = await api.patch(
+        `/orders/admin/orders/${orderId}/completed`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      }
-    );
+      );
 
-    alert(response.data.message);
+      alert(response.data.message);
 
-    getAllUsersOrders(); // refresh table
+      getAllUsersOrders(); // refresh table
+    } catch (error) {
+      console.error(error);
 
-  } catch (error) {
-    console.error(error);
-
-    alert(
-      error.response?.data?.message ||
-      "Failed to complete order"
-    );
-  }
-};
+      alert(error.response?.data?.message || "Failed to complete order");
+    }
+  };
 
   return (
     <div className="manager-dashboard-order">
@@ -117,7 +112,7 @@ export function AllUsersOrders({ order, getAllUsersOrders }) {
           <p>₵{order.amount_paid}</p>
         </div>
 
-        <button>
+        <button onClick={() => completeOrder(order.order_id)}> 
           <svg
             xmlns="http://w3.org"
             viewBox="0 0 100 100"
@@ -138,7 +133,11 @@ export function AllUsersOrders({ order, getAllUsersOrders }) {
               <path d="M 41 50 L 47 56 L 59 42" />
             </g>
           </svg>
-          <p id="manager-dashboard-confirm-button-text" onClick={() => completeOrder(order.order_id)}>Confirm & Credit</p>
+          <p
+            id="manager-dashboard-confirm-button-text"
+          >
+            Confirm & Credit
+          </p>
         </button>
       </div>
     </div>

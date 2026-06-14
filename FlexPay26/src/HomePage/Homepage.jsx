@@ -4,6 +4,7 @@ import { PageHeader } from "../PageHeader/PageHeader";
 import { useEffect, useState } from "react";
 import api from "../axios";
 import { PackageDiamonds } from "./PackageDiamonds";
+import { useNavigate } from "react-router-dom";
 
 export function HomePage() {
   //THIS HANDLES THE SCROLL BEHAVOUR
@@ -25,6 +26,7 @@ export function HomePage() {
   const [diamondPackageId, setDiamondPackageId] = useState(1)//this controlls the packege ID
   const [selectedPackage, setSelectedPackage]= useState(1);//this controlls the selected package to choose which package to highlight when clicked
   const [packages, setPackages] = useState([]);
+  const navigate = useNavigate();
   
   ///THESE TWO FUNCTIONS MAKE SURE ALL LEADING AND TRAILING SPACES AND SPACES IN THE MIDDLE OF THE PLAYER ID INPUT TAG ARE REOMEVED
   const handleChange = (e) => {
@@ -63,10 +65,14 @@ export function HomePage() {
         alert("Please fill all fields");
         return;
       }
+      
 
       // setLoading(true);
 
       const token = localStorage.getItem("token");
+      if(!token){
+        navigate('/login')
+      }
       const response = await api.post(
         `/payment/initialize`,
         {
@@ -84,7 +90,7 @@ export function HomePage() {
     } catch (error) {
       console.error(error);
 
-      alert(error.response?.data?.message || "Payment initialization failed");
+      //alert(error.response?.data?.message || "Payment initialization failed");
     } finally {
       // setLoading(false);
     }
