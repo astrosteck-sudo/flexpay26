@@ -7,13 +7,53 @@ const cors = require("cors"); // Enable Cross-Origin Resource Sharing
 const helmet = require("helmet"); // Secure HTTP headers
 const session = require("express-session"); // Session middleware // Secure HTTP headersconst session = require("express-session");
 const passport = require("passport");
-
-
+const rateLimit = require("express-rate-limit");
 const app = express();
 
 // ======================= MIDDLEWARE =======================
 // Allow cross-origin requests (frontend can call backend from another domain/port)
 app.use(cors());
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+
+        scriptSrc: ["'self'"],
+
+        styleSrc: ["'self'", "'unsafe-inline'"],
+
+        imgSrc: ["'self'", "data:", "https:"],
+
+        connectSrc: [
+          "'self'",
+          "https://flexpay26.vercel.app/",
+          "https://flexpay26.onrender.com",
+          "https://discord.com",
+        ],
+
+        fontSrc: ["'self'", "https:", "data:"],
+
+        objectSrc: ["'none'"],
+
+        frameAncestors: ["'none'"],
+      },
+    },
+  }),
+);
+
+
+
+const Limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+
+  message: {
+    message:
+      "Too many attempts. Try again later."
+  }
+});
 
 // Parse incoming JSON request bodies
 // server.js
@@ -56,18 +96,19 @@ app.use(
     secret: process.env.JWT_SECRET,
     resave: false,
     saveUninitialized: false,
-  })
+  }),
 );
 app.use(passport.initialize());
 app.use(passport.session());
 
 // ======================= ROUTES =======================
 // Mount authentication routes under /api/auth
-app.use("/api/auth", require("./routes/auth.routes"));
+app.set("trust proxy", 1);
+app.use("/api/auth", require("./routes/auth.routes"), Limiter);
 
 app.use("/api/health", require("./routes/health.routes"));
 
-app.use("/api/orders", require("./routes/orderRoutes"));
+app.use("/api/orders", require("./routes/orderRoutes"), Limiter);
 
 //app.use("/api/payment", require("./routes/orderRoutes"));
 
