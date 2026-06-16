@@ -1,9 +1,13 @@
 // Load environment variables from .env file
 require("dotenv").config();
+require("./config/passport");
 
 const express = require("express"); // Import Express framework
 const cors = require("cors"); // Enable Cross-Origin Resource Sharing
 const helmet = require("helmet"); // Secure HTTP headers
+const session = require("express-session"); // Session middleware // Secure HTTP headersconst session = require("express-session");
+const passport = require("passport");
+
 
 const app = express();
 
@@ -46,6 +50,16 @@ const db = require("./config/db");
     console.error("Database connection failed ❌", err);
   }
 })();
+
+app.use(
+  session({
+    secret: process.env.JWT_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // ======================= ROUTES =======================
 // Mount authentication routes under /api/auth

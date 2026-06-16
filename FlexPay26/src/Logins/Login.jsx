@@ -36,10 +36,10 @@ export function Login() {
       localStorage.setItem("user", JSON.stringify(response.data.user));
       const user = JSON.parse(localStorage.getItem("user"));
 
-      if(user.role === 'admin'){
-        navigate('/managerDashboard')
-      }else{
-        navigate('/userdashboard')
+      if (user.role === "admin") {
+        navigate("/managerDashboard");
+      } else {
+        navigate("/userdashboard");
       }
       setLoggingIn(false);
     } catch (err) {
@@ -105,6 +105,14 @@ export function Login() {
           </p>
         </div>
       </div>
+
+      <button
+        onClick={() => {
+          window.location.href = "http://localhost:5000/api/auth/discord";
+        }}
+      >
+        Login with Discord
+      </button>
       <SiteFooter></SiteFooter>
     </>
   );
