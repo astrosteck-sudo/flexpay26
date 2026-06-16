@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
-function OAuthSuccess() {
+export function OAuthSuccess() {
   const [params] = useSearchParams();
 
   useEffect(() => {
