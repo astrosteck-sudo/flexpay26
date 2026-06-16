@@ -10,12 +10,30 @@ router.get("/discord", passport.authenticate("discord"));
 
 router.get(
   "/discord/callback",
-  passport.authenticate("discord", {
-    failureRedirect: "/login",
-    session: false,
-  }),
-  discordCallback,
+  (req, res, next) => {
+    passport.authenticate("discord", (err, user, info) => {
+      if (err) {
+        console.error("Discord OAuth Error:", err);
+        return res.status(500).json({ error: err.message });
+      }
+      if (!user) {
+        console.error("Discord OAuth Failure Info:", info);
+        return res.status(400).json({ error: info });
+      }
+      req.logIn(user, (err) => {
+        if (err) {
+          console.error("Login Error:", err);
+          return res.status(500).json({ error: err.message });
+        }
+        return discordCallback(req, res);
+      });
+    })(req, res, next);
+  }
 );
 
-module.exports = router;
+
+router.get("/login", (req, res) => {
+  console.error("OAuth2 Failure:", req.session.messages);
+  res.status(400).send("Discord OAuth failed");
+});
 module.exports = router;

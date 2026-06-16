@@ -1,9 +1,7 @@
 const passport = require("passport");
 const DiscordStrategy = require("passport-discord").Strategy;
 
-const {
-  findOrCreateDiscordUser,
-} = require("../services/discordService");
+const { findOrCreateDiscordUser } = require("../services/discordService");
 
 passport.use(
   new DiscordStrategy(
@@ -21,16 +19,23 @@ passport.use(
       } catch (error) {
         done(error, null);
       }
-    }
-  )
+    },
+  ),
 );
 
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  done(null, user.user_id);
 });
 
-passport.deserializeUser((user, done) => {
-  done(null, user);
+passport.deserializeUser(async (user_id, done) => {
+  try {
+    // fetch the user from DB by ID
+    const [rows] = await db.query("SELECT * FROM users WHERE user_id = ?", [user_id]);
+    const user = rows[0];
+    done(null, user);
+  } catch (err) {
+    done(err, null);
+  }
 });
 
 module.exports = passport;

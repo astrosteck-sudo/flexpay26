@@ -25,7 +25,7 @@ const findOrCreateDiscordUser = async (profile) => {
   );
 
   const [newUser] = await pool.query(
-    "SELECT * FROM users WHERE id=?",
+    "SELECT * FROM users WHERE user_id=?",
     [result.insertId]
   );
 

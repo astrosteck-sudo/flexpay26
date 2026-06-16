@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const discordCallback = async (req, res) => {
   try {
+    
     const token = jwt.sign(
       {
         id: req.user.id,
