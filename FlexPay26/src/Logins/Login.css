@@ -179,7 +179,7 @@
   transition: transform 0.2s ease-in-out;
 }
 
-.login-external-login-buttons button{
+.login-external-login-buttons a{
   width: 50%;
   display: flex;
   gap: 10px;

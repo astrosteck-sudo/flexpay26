@@ -96,11 +96,8 @@ export function Login() {
           <div className="login-external-login-container">
             <h2>OR CONTINUE WITH</h2>
             <div className="login-external-login-buttons">
-              <button
-                onClick={() => {
-                  window.location.href =
-                    "https://flexpay26.onrender.com/api/auth/discord";
-                }}
+              <a
+                href="https://flexpay26.onrender.com/api/auth/discord"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +113,7 @@ export function Login() {
                 </svg>
 
                 <p>Discord</p>
-              </button>
+              </a>
             </div>
           </div>
         </form>
