@@ -108,7 +108,7 @@ export function Login() {
 
       <button
         onClick={() => {
-          window.location.href = "http://localhost:5000/api/auth/discord";
+          window.location.href = "https://flexpay26.onrender.com/api/auth/discord";
         }}
       >
         Login with Discord
