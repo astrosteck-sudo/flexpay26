@@ -9,9 +9,6 @@ export function OAuthSuccess() {
     const user = JSON.parse(
       decodeURIComponent(params.get("user"))
     );
-
-    console.log('token', token)
-    console.log('user', user)
     localStorage.setItem("token", token);
     localStorage.setItem("user", JSON.stringify(user));
 

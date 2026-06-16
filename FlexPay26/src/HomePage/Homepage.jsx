@@ -43,8 +43,6 @@ export function HomePage() {
   const fetchPackages = async () => {
     try {
       const response = await api.get("/packages");
-
-      console.log(response.data.packages);
       setPackages(response.data.packages);
     } catch (error) {
       console.error(error);
@@ -54,10 +52,6 @@ export function HomePage() {
   useEffect(() => {
     fetchPackages();
   }, []);
-
-  packages.map((item) => {
-    console.log(item.package_id);
-  });
 
   const handlePayment = async () => {
     try {
