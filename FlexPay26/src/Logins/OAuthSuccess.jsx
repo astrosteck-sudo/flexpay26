@@ -1,18 +1,22 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
-export function OAuthSuccess() {
+function OAuthSuccess() {
   const [params] = useSearchParams();
 
   useEffect(() => {
     const token = params.get("token");
+    const user = JSON.parse(
+      decodeURIComponent(params.get("user"))
+    );
 
-    if (token) {
-      localStorage.setItem("token", token);
+    console.log('token', token)
+    console.log('user', user)
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(user));
 
-      window.location.href = "/";
-    }
+    window.location.href = "/";
   }, []);
 
-  return <p className="discord-div">Logging in...</p>;
+  return <div className="discord-div">Signing you in...</div>;
 }

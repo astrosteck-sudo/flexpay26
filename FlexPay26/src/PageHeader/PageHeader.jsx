@@ -65,9 +65,9 @@ export function PageHeader() {
           <div className="user-logged-in-pill">
             <a href={`/${navigatePage}`} className="user-logged-in-link">
               <div className="page-header-user-initials">
-                {getInitials(user.username)}
+                {getInitials(user?.username)}
               </div>
-              <p className="page-header-username">{user.username}</p>
+              <p className="page-header-username">{user?.username}</p>
             </a>
           </div>
         )}
@@ -113,9 +113,9 @@ export function PageHeader() {
           <div className="mobile-user-logged-in-pill">
             <a href={`/${navigatePage}`} className="user-logged-in-link">
               <div className="page-header-user-initials">
-                {getInitials(user.username)}
+                {getInitials(user?.username)}
               </div>
-              <p className="page-header-username">{user.username}</p>
+              <p className="page-header-username">{user?.username}</p>
             </a>
           </div>
         )}
