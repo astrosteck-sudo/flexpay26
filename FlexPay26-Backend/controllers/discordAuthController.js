@@ -12,7 +12,7 @@ const discordCallback = async (req, res) => {
       process.env.JWT_SECRET,
       {
         expiresIn: "7d",
-      }
+      },
     );
 
     const userData = encodeURIComponent(
@@ -22,11 +22,11 @@ const discordCallback = async (req, res) => {
         email: user.email,
         role: user.role,
         created_at: user.created_at,
-      })
+      }),
     );
 
     return res.redirect(
-      `${process.env.FRONTEND_URL}/oauth-success?token=${token}&user=${userData}`
+      `${process.env.FRONTEND_URL}/oauth-success?token=${token}&user=${userData}`,
     );
   } catch (error) {
     return res.status(500).json({
@@ -34,4 +34,8 @@ const discordCallback = async (req, res) => {
       message: error.message,
     });
   }
+};
+
+module.exports = {
+  discordCallback,
 };
