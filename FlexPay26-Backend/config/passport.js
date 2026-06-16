@@ -1,3 +1,4 @@
+ db = require("../config/db");
 const passport = require("passport");
 const DiscordStrategy = require("passport-discord").Strategy;
 

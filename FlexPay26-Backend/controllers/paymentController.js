@@ -3,6 +3,7 @@ const db = require("../config/db");
 const crypto = require("crypto");
 
 const initializePayment = async (req, res) => {
+  console.log('user hit')
   try {
     const { player_id, package_id } = req.body;
     if (!player_id || !package_id) {
