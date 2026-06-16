@@ -189,7 +189,7 @@
   background: inherit;
   border: solid grey .5px;
   border-radius: 5px;
-  
+  text-decoration: none;
 }
 
 .login-external-login-buttons:active{
