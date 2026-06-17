@@ -62,7 +62,6 @@ export function ManagerDashboard() {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response.data.orders);
       setCompletedOrders(response.data.orders);
     } catch (error) {
       console.error(error);

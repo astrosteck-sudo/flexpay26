@@ -183,7 +183,6 @@ const completeOrder = async (req, res) => {
 };
 
 const getCompletedOrders = async (req, res) => {
-  console.log("hitting");
   try {
 
     const [orders] = await db.query(

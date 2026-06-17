@@ -55,8 +55,6 @@ export function UserDashBoard() {
       const response = await api.get("/orders/dashboard", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log("Dashboard data:", response.data);
-      console.log(response.data.stats)
       setDashboardInfo(response.data); // update state
     } catch (err) {
       console.error("Error fetching dashboard:", err);
