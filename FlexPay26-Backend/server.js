@@ -104,7 +104,7 @@ app.use(passport.session());
 // ======================= ROUTES =======================
 // Mount authentication routes under /api/auth
 app.set("trust proxy", 1);
-app.use("/api/auth", require("./routes/auth.routes"), Limiter);
+app.use("/api/auth", require("./routes/auth.routes"));
 
 app.use("/api/health", require("./routes/health.routes"));
 
