@@ -31,6 +31,7 @@ app.use(
           "https://flexpay26.vercel.app/",
           "https://flexpay26.onrender.com",
           "https://discord.com",
+          "https://api.paystack.co",
         ],
 
         fontSrc: ["'self'", "https:", "data:"],
