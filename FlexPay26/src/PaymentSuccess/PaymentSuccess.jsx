@@ -24,6 +24,7 @@ export function PaymentSuccess() {
       const res = await api.get(`/orders/reference/${reference}`);
 
       setOrder(res.data.order);
+      console.log(res.data)
     } catch (err) {
       console.error(err);
     } finally {
@@ -82,16 +83,16 @@ export function PaymentSuccess() {
           <div className="payment-success-page-transaction-summary-header">
             <p>Transaction Status</p>
             <p
-              className={`payment-success-page-transaction-status ${order.status === "paid" ? "success" : "failed"}`}
+              className={`payment-success-page-transaction-status ${order?.status === "paid" ? "success" : "failed"}`}
             >
-              {order.status === "paid" ? "SUCCESSFUL" : "FAILED"}
+              {order?.status === "paid" ? "SUCCESSFUL" : "FAILED"}
             </p>
           </div>
 
           <div className="payment-success-page-transaction-summary-details-container">
             <div>
               <h2>Order ID</h2>
-              <p>#DC-8829{order.order_id}</p>
+              <p>#DC-8829{order?.order_id}</p>
             </div>
 
             <div>
@@ -99,7 +100,7 @@ export function PaymentSuccess() {
               <p
                 style={{ color: "rgb(255 107 0 / var(--tw-text-opacity, 1))" }}
               >
-                ${order.amount_paid}
+                ${order?.amount_paid}
               </p>
             </div>
           </div>
@@ -107,12 +108,12 @@ export function PaymentSuccess() {
           <div className="payment-success-page-transaction-summary-details-container">
             <div>
               <h2>Diamonds Credited</h2>
-              <p>{order.diamond_amount} Diamonds</p>
+              <p>{order?.diamond_amount} Diamonds</p>
             </div>
 
             <div>
               <h2>Player ID</h2>
-              <p>{order.player_id}</p>
+              <p>{order?.player_id}</p>
             </div>
           </div>
 
