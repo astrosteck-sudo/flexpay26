@@ -18,6 +18,7 @@ const initializePayment = async (req, res) => {
     }
 
     const userId = req.user.user_id;
+    console.log(req.user)
 
     // Get user email
 

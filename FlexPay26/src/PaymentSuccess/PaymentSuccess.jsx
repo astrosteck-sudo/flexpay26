@@ -37,7 +37,7 @@ export function PaymentSuccess() {
   }
 
   if (!order) {
-    return <h2>Order not found</h2>;
+    return <h2>Order not found frontend</h2>;
   }
 
   return (
