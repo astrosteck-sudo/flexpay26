@@ -15,5 +15,5 @@ export function OAuthSuccess() {
     window.location.href = "/";
   }, []);
 
-  return <div className="discord-div">Signing you in...</div>;
+  return <div className="discord-div-signing-you-in"><p>Signing you in...</p></div>;
 }
