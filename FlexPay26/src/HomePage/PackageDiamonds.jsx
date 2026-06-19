@@ -1,4 +1,4 @@
-import diamondsImage from "../assets/icons/diamonds.png";
+import diamondsImage from "../assets/icons/CopilotDiamond.png";
 
 export function PackageDiamonds({
   item,
