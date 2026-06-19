@@ -180,9 +180,46 @@ input:focus {
   border: #cc5500 solid 1px;
   border-radius: 15px;
   width: 23%;
+  /* padding-top: 0; */
+  /* padding-right: 0; */
+  min-height: 200px;
+}
+.package-option-diamond-description-popular {
+  font-family: Sora bold;
+  font-size: clamp(10px, 2vw, 12px);
+  text-align: right;
+  margin-left: auto;
+  margin-right: 15px;
+  margin-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgb(0 224 255 / 0.1);
+  color: rgb(0, 229, 255);
+  border-radius: 5px;
+  margin-right: -20px; /* Matches parent padding */
+  margin-top: -20px; /* Matches parent padding */
+}
+.package-option-diamond-description-best-value{
+  font-family: Sora;
+  font-size: clamp(10px, 2vw, 12px);
+  text-align: right;
+  margin-left: auto;
+  margin-right: 15px;
+  margin-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgb(255, 102, 0);
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  margin-right: -20px; /* Matches parent padding */
+  margin-top: -20px; /* Matches parent padding */
 }
 
-.package-option-diamonds.selectedPackage{
+.package-option-diamonds.selectedPackage {
   border: #ff6a00 solid 1px;
   box-shadow: 0 0 8px rgb(255, 106, 0);
 }
@@ -219,19 +256,21 @@ input:focus {
   }
 }
 .diamonds-image {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
+  margin: auto;
 }
 .package-option-diamonds-title {
   font-weight: bold;
   color: white;
   font-size: 16px;
   font-family: Sora;
-  font-size: clamp(10px, 2vw, 12px);
+  font-size: 13px;
 }
 .package-option-diamonds-price {
   color: #ff6600;
   font-weight: bold;
+  font-family: Sora;
 }
 
 .order-summary-title {
@@ -312,8 +351,8 @@ input:focus {
   transform: scale(1); /* Optional: explicit base scale */
   transition: transform 0.2s ease-in-out;
 }
-.order-summary-confirm-button:active{
-  transform: scale(.97);
+.order-summary-confirm-button:active {
+  transform: scale(0.97);
 }
 .order-summary-confirm-button svg {
   width: 25px;

@@ -6,20 +6,31 @@ export function PackageDiamonds({
   setDiamonPackage,
   isSelected,
   onSelect,
-  setDiamondPackageId
+  setDiamondPackageId,
 }) {
   function handleDiamondPackage(param, paramPackage, paramPackageId) {
     setDiamondPackagePrice(param);
     setDiamonPackage(paramPackage);
-    setDiamondPackageId(paramPackageId)
-    onSelect()
+    setDiamondPackageId(paramPackageId);
+    onSelect();
   }
   return (
     <>
       <div
-        className={`package-option-diamonds ${isSelected? 'selectedPackage': ''} `}
-        onClick={() => handleDiamondPackage(item.price, item.diamond_amount, item.package_id)}
+        className={`package-option-diamonds ${isSelected ? "selectedPackage" : ""} `}
+        onClick={() =>
+          handleDiamondPackage(item.price, item.diamond_amount, item.package_id)
+        }
       >
+        {item.package_id === 1 && (
+          <p className="package-option-diamond-description-popular">POPULAR</p>
+        )}
+
+        {item.package_id === 3 && (
+          <p className="package-option-diamond-description-best-value">BEST VALUE</p>
+        )}
+        
+
         <img src={diamondsImage} alt="Diamonds" className="diamonds-image" />
         <h2 className="package-option-diamonds-title">
           {item.diamond_amount} diamonds
