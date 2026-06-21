@@ -137,6 +137,11 @@
   font-size: clamp(15px, 2vw, 15px);
   font-family: Sora;
 }
+.player-input::placeholder {
+  opacity: 0.7; /* Ensures the color is fully visible */
+  margin-right: 30px;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

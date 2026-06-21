@@ -59,6 +59,7 @@ export function HomePage() {
       const token = localStorage.getItem("token");
       if (!token) {
         navigate("/login");
+        return;
       }
       if (!userPlayerId || !userPlayerId) {
         alert("Please fill all fields");
@@ -244,7 +245,7 @@ export function HomePage() {
             </div>
             <p className="why-choose-reason-title">Fast Delivery</p>
             <p className="why-choose-reason-description">
-              Your diamonds are sent to your account within 2-5 minutes of
+              Your diamonds are sent to your account within 5-10 minutes of
               payment confirmation. Instant adrenaline.
             </p>
           </div>
