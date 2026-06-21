@@ -82,7 +82,7 @@ export function HomePage() {
     } catch (error) {
       console.error(error);
 
-      //alert(error.response?.data?.message || "Payment initialization failed");
+    alert(error.response?.data?.message || "Payment initialization failed");
     } finally {
       // setLoading(false);
     }

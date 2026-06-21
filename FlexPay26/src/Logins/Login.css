@@ -174,7 +174,7 @@
 .login-external-login-container h2{
   color: gray;
   font-family: Bebas Neue;
-  font-size: clamp(10px, 2vw, 15px);
+  font-size: clamp(18px, 2vw, 20px);
 }
 .login-external-login-buttons{
   display: flex;

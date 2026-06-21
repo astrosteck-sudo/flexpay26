@@ -10,7 +10,7 @@ const initializePayment = async (req, res) => {
         message: "Missing required fields",
       });
     }
-    if (player_id.length > 10 || player_id.length < 9) {
+    if (player_id.length > 11 || player_id.length < 9) {
       return res.status(400).json({
         message: "Input valid player ID",
       });
