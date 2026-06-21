@@ -21,7 +21,7 @@ export function HomePage() {
   };
 
   const [userPlayerId, setUserPlayerId] = useState(""); //this controlls the user playerID displayed on the order summary
-  const [diamondPackagePrice, setDiamondPackagePrice] = useState(61); //this displayed the number of diamonds selected price
+  const [diamondPackagePrice, setDiamondPackagePrice] = useState(65); //this displayed the number of diamonds selected price
   const [diamondPackage, setDiamonPackage] = useState("583"); // controlls the number of diamonds selected by the user
   const [diamondPackageId, setDiamondPackageId] = useState(1); //this controlls the packege ID
   const [selectedPackage, setSelectedPackage] = useState(1); //this controlls the selected package to choose which package to highlight when clicked
