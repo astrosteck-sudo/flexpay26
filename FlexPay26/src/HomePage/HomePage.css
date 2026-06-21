@@ -183,6 +183,7 @@ input:focus {
   /* padding-top: 0; */
   /* padding-right: 0; */
   min-height: 200px;
+  max-height: 200px;
 }
 .package-option-diamond-description-popular {
   font-family: Sora bold;
