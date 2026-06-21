@@ -54,17 +54,17 @@ export function HomePage() {
 
   const handlePayment = async () => {
     try {
-      if (!userPlayerId || !userPlayerId) {
-        alert("Please fill all fields");
-        return;
-      }
-
       // setLoading(true);
 
       const token = localStorage.getItem("token");
       if (!token) {
         navigate("/login");
       }
+      if (!userPlayerId || !userPlayerId) {
+        alert("Please fill all fields");
+        return;
+      }
+
       const response = await api.post(
         `/payment/initialize`,
         {
