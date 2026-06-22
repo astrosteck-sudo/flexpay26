@@ -107,48 +107,36 @@
   transform: scale(1); /* Optional: explicit base scale */
   transition: transform 0.2s ease-in-out;
 }
-.login-submit-button:active{
-  transform: scale(.97);
+.login-submit-button:active {
+  transform: scale(0.97);
 }
 
-
-.login-signUp-link{
-    color: white;
-    margin-top: 20px;
-    font-family: Sora;
-    font-size: clamp(13px, 2vw, 15px);
+.login-signUp-link {
+  color: white;
+  margin-top: 20px;
+  font-family: Sora;
+  font-size: clamp(13px, 2vw, 15px);
 }
-.login-signUp-span{
-    margin-left: 4px;
-    font-weight: bold;
+.login-signUp-span {
+  margin-left: 4px;
+  font-weight: bold;
 }
-.login-signUp-a{
-    text-decoration: none;
-    color: rgb(255, 102, 0);
-}
-
-@media only screen and (max-width: 992px){
-    .login-container{
-        width: 100%;
-    }
-    .login-form{
-        width: 95%;
-        padding: 20px;
-    }
+.login-signUp-a {
+  text-decoration: none;
+  color: rgb(255, 102, 0);
 }
 
+@media only screen and (max-width: 992px) {
+  .login-container {
+    width: 100%;
+  }
+  .login-form {
+    width: 95%;
+    padding: 20px;
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-.discord-div-signing-you-in{
+.discord-div-signing-you-in {
   color: white;
   margin: auto;
   margin-top: 100px;
@@ -157,12 +145,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: clamp(20px,2vw, 30px);
+  font-size: clamp(20px, 2vw, 30px);
   width: 100%;
   height: 500px;
 }
 
-.login-external-login-container{
+.login-external-login-container {
   padding-left: 30px;
   padding-right: 30px;
   display: flex;
@@ -171,20 +159,21 @@
   flex-direction: column;
   gap: 10px;
 }
-.login-external-login-container h2{
+.login-external-login-container h2 {
   color: gray;
   font-family: Bebas Neue;
   font-size: clamp(18px, 2vw, 20px);
 }
-.login-external-login-buttons{
+.login-external-login-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   transition: transform 0.2s ease-in-out;
+  gap: 10px;
 }
 
-.login-external-login-buttons a{
+.login-external-login-buttons a {
   width: 50%;
   display: flex;
   gap: 10px;
@@ -192,21 +181,24 @@
   align-items: center;
   padding: 13px;
   background: inherit;
-  border: solid grey .5px;
+  border: solid grey 0.5px;
   border-radius: 5px;
   text-decoration: none;
 }
 
-.login-external-login-buttons:active{
-  transform: scale(.97);
+
+.login-external-google-button:active{
+  transform: scale(0.97);
 }
-.login-external-login-buttons p{
+.login-external-discord-button:active{
+  transform: scale(0.97);
+}
+.login-external-login-buttons p {
   color: white;
   font-family: Sora bold;
 }
 
-
-.login-discord-svg{
+.login-discord-svg {
   width: 28px;
   height: 28px;
   fill: none;
@@ -214,4 +206,10 @@
   stroke-width: 1.6px;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+.login-google-svg {
+  width: 28px;
+  height: 28px;
+  max-width: 300px; /* Adapts beautifully to modern columns */
+  height: auto;
 }
