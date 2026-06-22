@@ -1,6 +1,7 @@
 // Load environment variables from .env file
 require("dotenv").config();
 require("./config/passport");
+require("./config/passportGoogle");
 
 const express = require("express"); // Import Express framework
 const cors = require("cors"); // Enable Cross-Origin Resource Sharing

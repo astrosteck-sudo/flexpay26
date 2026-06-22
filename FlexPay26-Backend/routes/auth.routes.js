@@ -3,6 +3,7 @@ const passport = require("passport");
 
 const { register, login } = require("../controllers/auth.controller");
 const { discordCallback } = require("../controllers/discordAuthController");
+const { googleCallback } = require("../controllers/googleCallback")
 
 router.post("/register", register);
 router.post("/login", login);
@@ -29,6 +30,21 @@ router.get(
       });
     })(req, res, next);
   }
+);
+
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+  }),
+);
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    session: false,
+  }),
+  googleCallback,
 );
 
 

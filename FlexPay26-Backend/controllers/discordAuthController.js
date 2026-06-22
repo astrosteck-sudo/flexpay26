@@ -29,10 +29,10 @@ const discordCallback = async (req, res) => {
       `${process.env.FRONTEND_URL}/oauth-success?token=${token}&user=${userData}`,
     );
   } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+    console.error(error); // optional: log the error for debugging
+
+    // Redirect to frontend error page with provider info
+    return res.redirect(`${process.env.FRONTEND_URL}/login-error`);
   }
 };
 

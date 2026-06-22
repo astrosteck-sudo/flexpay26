@@ -115,6 +115,15 @@ export function Login() {
                 <p>Discord</p>
               </a>
             </div>
+
+            <button
+  onClick={() => {
+    window.location.href =
+      "https://flexpay26.onrender.com/api/auth/google";
+  }}
+>
+  Continue with Google
+</button>
           </div>
         </form>
 
