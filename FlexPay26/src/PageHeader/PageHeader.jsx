@@ -54,11 +54,11 @@ export function PageHeader() {
         {token ? (
           ""
         ) : (
-          <div className="pageheader-logins-buttons">
-            <a href="/login" className="pageheader-logins-link">
+          <a href="/login" className="pageheader-logins-buttons">
+            <a className="pageheader-logins-link">
               <p>LOGIN</p>
             </a>
-          </div>
+          </a>
         )}
 
         {token && (
@@ -102,11 +102,11 @@ export function PageHeader() {
         {token ? (
           ""
         ) : (
-          <div className="mobile-pageheader-logins-buttons">
+          <a href="/login" className="mobile-pageheader-logins-buttons">
             <a href="/login" className="pageheader-logins-link">
               <p>LOGIN</p>
             </a>
-          </div>
+          </a>
         )}
 
         {token && (
