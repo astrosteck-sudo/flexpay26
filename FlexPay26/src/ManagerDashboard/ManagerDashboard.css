@@ -2,6 +2,7 @@
   background: linear-gradient(to bottom, #1f100137, #1f1001);
   height: 100vh;
   overflow: scroll;
+  scrollbar-width: none;
 }
 
 .manager-dashboard-status-container {
